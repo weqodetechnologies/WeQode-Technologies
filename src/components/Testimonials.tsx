@@ -23,7 +23,7 @@ const Testimonials = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           <div>
             <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">TESTIMONIALS</div>
-            <h2 className="text-5xl font-bold text-secondary mb-6">Testimonials From Our Clients</h2>
+            <h2 className="text-5xl font-bold mb-6" style={{ color: "hsl(var(--brand-orange))" }}>Testimonials From Our Clients</h2>
             <p className="text-lg text-muted-foreground mb-8">
               Our clients' words reflect our passion for building meaningful digital experiences that are designed to inspire, built to perform.
             </p>
@@ -47,7 +47,8 @@ const Testimonials = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-secondary p-8 rounded-3xl text-white shadow-lg hover:shadow-xl transition-shadow"
+                className="p-8 rounded-3xl text-white shadow-lg hover:shadow-xl transition-shadow"
+                style={{ backgroundColor: "hsl(var(--brand-orange))" }}
               >
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-3xl font-bold">{testimonial.rating}</span>

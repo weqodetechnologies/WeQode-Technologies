@@ -6,7 +6,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <div className="text-2xl font-bold">
-            <span className="text-secondary">We</span>
+            <span style={{ color: "hsl(var(--brand-orange))" }}>We</span>
             <span className="text-foreground">Qode Technologies</span>
           </div>
           
@@ -17,7 +17,10 @@ const Header = () => {
             <a href="#careers" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a>
           </div>
           
-          <Button className="bg-secondary hover:bg-secondary/90 text-white rounded-xl px-6">
+          <Button 
+            className="text-white rounded-xl px-6 hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: "hsl(var(--brand-orange))" }}
+          >
             Contact us
           </Button>
         </nav>

@@ -51,7 +51,7 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="mb-12">
           <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">SERVICES</div>
-          <h2 className="text-5xl font-bold text-secondary">Our Services</h2>
+          <h2 className="text-5xl font-bold" style={{ color: "hsl(var(--brand-orange))" }}>Our Services</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
             At WeQode, we blend creativity and technology to deliver custom-built digital experiences. 
             Explore what we can create together.
@@ -62,13 +62,16 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl p-8 transition-all duration-300 hover:scale-[1.02]"
+              className="group relative overflow-hidden rounded-3xl p-8 transition-all duration-500"
               style={{
                 backgroundColor: service.variant === "purple" ? "hsl(var(--brand-purple))" : "hsl(var(--brand-orange))"
               }}
             >
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Hover overlay - changes card to orange on hover */}
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ backgroundColor: "hsl(var(--brand-orange))" }}
+              />
               
               <div className="relative z-10">
                 <service.icon className="w-16 h-16 text-white mb-6" strokeWidth={1.5} />
@@ -80,12 +83,11 @@ const Services = () => {
                   {service.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="px-4 py-2 rounded-full text-sm font-medium text-white transition-colors"
                       style={{
                         backgroundColor: service.variant === "purple" 
                           ? "hsl(var(--brand-orange))" 
-                          : "hsl(var(--brand-purple))",
-                        color: "white"
+                          : "hsl(var(--brand-purple))"
                       }}
                     >
                       {tag}

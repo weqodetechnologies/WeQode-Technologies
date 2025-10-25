@@ -15,7 +15,7 @@ const ProjectLifecycle = () => {
       <div className="container mx-auto px-6">
         <div className="mb-16">
           <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">PROJECT</div>
-          <h2 className="text-5xl font-bold text-secondary">Project Lifecycle</h2>
+          <h2 className="text-5xl font-bold" style={{ color: "hsl(var(--brand-orange))" }}>Project Lifecycle</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
             Our process is built to turn ideas into impactful digital experiences from research and strategy to design, development, and launch.
           </p>
@@ -27,7 +27,7 @@ const ProjectLifecycle = () => {
             {stages.slice(0, 3).map((stage, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-48 h-48 rounded-full bg-gradient-to-br from-muted to-background flex items-center justify-center mb-6 shadow-lg">
-                  <stage.icon className="w-20 h-20 text-secondary" strokeWidth={1.5} />
+                  <stage.icon className="w-20 h-20" style={{ color: "hsl(var(--brand-orange))" }} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-bold">{stage.title}</h3>
                 {index < 2 && (
@@ -49,7 +49,7 @@ const ProjectLifecycle = () => {
             {stages.slice(3, 6).reverse().map((stage, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-48 h-48 rounded-full bg-gradient-to-br from-muted to-background flex items-center justify-center mb-6 shadow-lg">
-                  <stage.icon className="w-20 h-20 text-secondary" strokeWidth={1.5} />
+                  <stage.icon className="w-20 h-20" style={{ color: "hsl(var(--brand-orange))" }} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-bold">{stage.title}</h3>
                 {index < 2 && (

@@ -22,7 +22,7 @@ const RecentProjects = () => {
       <div className="container mx-auto px-6">
         <div className="mb-16">
           <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">PORTFOLIO</div>
-          <h2 className="text-5xl font-bold text-secondary">Recent Projects</h2>
+          <h2 className="text-5xl font-bold" style={{ color: "hsl(var(--brand-orange))" }}>Recent Projects</h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
             Every project we create blends strategy, design, and technology to deliver impactful digital experiences.
           </p>
