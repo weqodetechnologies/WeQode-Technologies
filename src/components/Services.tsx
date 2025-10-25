@@ -47,22 +47,22 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="mb-12">
-          <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">SERVICES</div>
-          <h2 className="text-5xl font-bold" style={{ color: "hsl(var(--brand-orange))" }}>Our Services</h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-2xl">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-12 sm:mb-16">
+          <div className="text-[60px] sm:text-[80px] lg:text-[120px] font-bold text-muted/10 leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px]">SERVICES</div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold" style={{ color: "hsl(var(--brand-orange))" }}>Our Services</h2>
+          <p className="text-base sm:text-lg text-muted-foreground mt-4 max-w-2xl">
             At WeQode, we blend creativity and technology to deliver custom-built digital experiences. 
             Explore what we can create together.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl p-8 transition-all duration-500"
+              className="group relative overflow-hidden rounded-3xl p-6 sm:p-8 transition-all duration-500"
               style={{
                 backgroundColor: service.variant === "purple" ? "hsl(var(--brand-purple))" : "hsl(var(--brand-orange))"
               }}
@@ -74,16 +74,16 @@ const Services = () => {
               />
               
               <div className="relative z-10">
-                <service.icon className="w-16 h-16 text-white mb-6" strokeWidth={1.5} />
+                <service.icon className="w-12 h-12 sm:w-16 sm:h-16 text-white mb-4 sm:mb-6" strokeWidth={1.5} />
                 
-                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-white/90 mb-6 text-sm">{service.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{service.title}</h3>
+                <p className="text-white/90 mb-4 sm:mb-6 text-sm">{service.description}</p>
                 
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-4 py-2 rounded-full text-sm font-medium text-white transition-colors"
+                      className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-white transition-colors"
                       style={{
                         backgroundColor: service.variant === "purple" 
                           ? "hsl(var(--brand-orange))" 

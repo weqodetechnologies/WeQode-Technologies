@@ -18,22 +18,22 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
-          <div>
-            <div className="text-[120px] font-bold text-muted/10 leading-none mb-[-60px]">TESTIMONIALS</div>
-            <h2 className="text-5xl font-bold mb-6" style={{ color: "hsl(var(--brand-orange))" }}>Testimonials From Our Clients</h2>
-            <p className="text-lg text-muted-foreground mb-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8 sm:mb-12">
+          <div className="text-center lg:text-left">
+            <div className="text-[60px] sm:text-[80px] lg:text-[120px] font-bold text-muted/10 leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px]">TESTIMONIALS</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6" style={{ color: "hsl(var(--brand-orange))" }}>Testimonials From Our Clients</h2>
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
               Our clients' words reflect our passion for building meaningful digital experiences that are designed to inspire, built to perform.
             </p>
             
-            <div className="mb-8">
-              <div className="text-7xl font-bold text-primary mb-2">4.9</div>
-              <p className="text-lg font-semibold">Client satisfaction drives everything we do at WeQode Technologies.</p>
+            <div className="mb-6 sm:mb-8">
+              <div className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-2">4.9</div>
+              <p className="text-base sm:text-lg font-semibold">Client satisfaction drives everything we do at WeQode Technologies.</p>
             </div>
             
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center lg:justify-start">
               <Button variant="outline" size="icon" className="rounded-full">
                 <ChevronLeft className="w-5 h-5" />
               </Button>
@@ -43,33 +43,33 @@ const Testimonials = () => {
             </div>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="p-8 rounded-3xl text-white shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 sm:p-8 rounded-3xl text-white shadow-lg hover:shadow-xl transition-shadow"
                 style={{ backgroundColor: "hsl(var(--brand-orange))" }}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-3xl font-bold">{testimonial.rating}</span>
+                  <span className="text-2xl sm:text-3xl font-bold">{testimonial.rating}</span>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-300 text-yellow-300" />
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-300 text-yellow-300" />
                     ))}
                   </div>
                 </div>
                 
-                <p className="text-white/95 mb-6 leading-relaxed">
+                <p className="text-white/95 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                   {testimonial.text}
                 </p>
                 
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                    <span className="text-xl font-bold">{testimonial.author.charAt(0)}</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-lg sm:text-xl font-bold">{testimonial.author.charAt(0)}</span>
                   </div>
                   <div>
-                    <div className="font-bold">{testimonial.author}</div>
-                    <div className="text-sm text-white/80">{testimonial.role}</div>
+                    <div className="font-bold text-sm sm:text-base">{testimonial.author}</div>
+                    <div className="text-xs sm:text-sm text-white/80">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
