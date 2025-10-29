@@ -37,14 +37,14 @@ All colors MUST be HSL.
     --ring: 260 35% 45%;
 
     --radius: 1rem;
-    
+
     /* Brand colors */
-    --brand-purple: 260 35% 45%;
-    --brand-purple-light: 260 35% 60%;
-    --brand-orange: 25 100% 67%;
-    --brand-orange-light: 25 100% 75%;
+    --brand-purple: 271, 41%, 32%;
+    --brand-purple-light: 270, 40%, 35%;
+    --brand-orange: 26, 98%, 63%;
+    --brand-orange-light: 26, 98%, 64%;
     --brand-beige: 40 40% 92%;
-    
+
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -111,5 +111,6 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Satoshi', sans-serif;
   }
 }
