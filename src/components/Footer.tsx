@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail, MapPin } from "lucide-react";
-import linkedinIcon from "@/assets/icons/Linkedin.png";
+import linkedinIcon from "@/assets/Icons/Linkedin.png";
 import TwitterIcon from "@/assets/icons/Xicon.png";
 import instagramIcon from "@/assets/icons/InstaIcon.png";
 const Footer = () => {
