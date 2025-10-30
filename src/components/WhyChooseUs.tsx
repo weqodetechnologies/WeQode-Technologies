@@ -6,28 +6,19 @@ import deliveryImg from "../assets/why Choose us images/image4.png";
 import image5 from "../assets/why Choose us images/image5.png";
 import arrowImg from "../assets/why Choose us images/arro.png";
 
-const featureRows = [
-  ["Creative Team", "Reliable Support"],
-  ["Startup Friendly", "Custom Solutions"],
-  ["High-Quality Designs", "On-Time Delivery"],
-  ["Fast Communication", "Affordable Tech Solutions"],
-];
-
-const featureImages = [teamImg, customImg, image5, deliveryImg];
-
 const WhyChooseUs = () => {
   return (
-    <section className="container mx-auto px-6 py-16 bg-[#FFF8F0]">
+    <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 bg-[#FFF8F0]">
       <div className="grid lg:grid-cols-2 gap-10 items-center">
         {/* LEFT SECTION */}
-        <div>
-          <h1 className="text-[100px] font-extrabold text-[#E5E5E5] leading-none">
+        <div className="text-center lg:text-left">
+          <h1 className="text-[60px] sm:text-[80px] lg:text-[125px] font-black text-[#E5E5E5] leading-none">
             WHY
           </h1>
-          <h2 className="text-4xl font-bold text-orange-400 -mt-12 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-orange-400 -mt-6 sm:-mt-8  lg:mt-[-52px] mb-4 sm:mb-8 lg:text-[44px]">
             Why Choose us?
           </h2>
-          <p className="text-black text-lg font-medium leading-relaxed max-w-md">
+          <p className="text-[#111111] text-base sm:text-lg lg:text-[24px] font-medium leading-relaxed max-w-md mx-auto lg:mx-0">
             We bring together creativity, strategy, and technology to deliver
             results that matter. Our team is dedicated to building solutions
             that elevate your business and your brand.
@@ -35,63 +26,92 @@ const WhyChooseUs = () => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex flex-col items-center lg:items-start w-full">
-          {/* Speech bubble + main image */}
-          <div className="mb-1 flex flex-col items-center w-full">
-            <div className="bg-[#49B3F9] text-[20px] text-white px-7 py-3 rounded-full shadow-md text-center w-[540px] mb-[-14px] z-20">
+        <div className="flex flex-col items-center lg:items-end w-full relative">
+          {/* SPEECH BUBBLE */}
+          <div className="flex flex-col items-center lg:items-end mb-8 relative w-full">
+            <div className="bg-[#49B3F9] text-[16px] sm:text-[18px] lg:text-[20px] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-md text-center w-full sm:w-[540px] z-10">
               We don’t just think — we create crazy cool stuff!
             </div>
 
-            <div className="flex flex-col w-full items-center relative">
-              {/* Arrow */}
-              <div className="w-[520px] mt-5 flex justify-start">
-                <img src={arrowImg} alt="Arrow" className="w-[72px] h-[63px]" />
-              </div>
+            {/* ARROW */}
+            <img
+              src={arrowImg}
+              alt="Arrow"
+              className="hidden sm:block absolute top-[55px] sm:top-[65px] right-[60%] lg:right-[490px] w-[50px] sm:w-[70px] h-[45px] sm:h-[60px] rotate-[15deg]"
+            />
 
-              {/* Main Image */}
-              <div className="w-full flex justify-center mt-[-56px] ml-20">
-                <div className="relative overflow-hidden shadow-lg rounded-[56px]">
-                  <img
-                    src={personImage}
-                    alt="Creative Thinking"
-                    className="w-[460px] h-[124px] object-cover"
-                    style={{ borderRadius: "56px" }}
-                  />
-                </div>
-              </div>
+            {/* MAIN IMAGE */}
+            <div className="mt-8 sm:mt-10 lg:mr-2 rounded-[36px] sm:rounded-[56px] overflow-hidden shadow-lg w-full sm:w-auto">
+              <img
+                src={personImage}
+                alt="Creative Thinking"
+                className="w-full sm:w-[500px] h-[120px] sm:h-[140px] object-cover rounded-[36px] sm:rounded-[56px]"
+              />
             </div>
           </div>
 
-          {/* RIGHT-SIDED PYRAMID */}
-          <div className="flex flex-col items-end w-full mt-6 relative space-y-3">
-            {featureRows.map((row, rowIdx) => (
-              <div
-                key={rowIdx}
-                className="flex items-center gap-5 justify-end transition-all duration-300"
-                style={{ marginRight: `${rowIdx * 50}px` }} // Pyramid shift
-              >
-                {/* Feature boxes - auto width based on text */}
-                {row.map((title, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-orange-400 text-white px-6 py-3 rounded-full font-bold text-[18px] shadow hover:scale-105 transition-transform whitespace-nowrap"
-                  >
-                    {title}
-                  </div>
-                ))}
-
-                {/* Circular image same height as text boxes */}
-                {featureImages[rowIdx] && (
-                  <div className="flex items-center justify-center bg-orange-400 rounded-full shadow-md hover:scale-105 transition-transform">
-                    <img
-                      src={featureImages[rowIdx]}
-                      alt="Feature visual"
-                      className="w-[127px] h-[52px] rounded-full object-cover border-4 border-white"
-                    />
-                  </div>
-                )}
+          {/* FEATURE ROWS */}
+          <div className="flex flex-col items-center lg:items-end gap-3 mt-4 ml-0 lg:ml-16 w-full">
+            {/* Row 1 */}
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4 mr-0">
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Creative Team
               </div>
-            ))}
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Reliable Support
+              </div>
+              <img
+                src={teamImg}
+                alt=""
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+              />
+            </div>
+
+            {/* Row 2 */}
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4">
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Startup Friendly
+              </div>
+              <img
+                src={customImg}
+                alt=""
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+              />
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Custom Solutions
+              </div>
+            </div>
+
+            {/* Row 3 */}
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4">
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                High-Quality Designs
+              </div>
+              <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                On-Time Delivery
+              </div>
+              <img
+                src={deliveryImg}
+                alt=""
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+              />
+            </div>
+
+            {/* Row 4 */}
+            {/* Row 4 */}
+            <div className="flex flex-nowrap justify-center lg:justify-end items-center gap-2 sm:gap-3 lg:gap-4 lg:mr-[40px] overflow-x-auto">
+              <div className="bg-orange-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Fast Communication
+              </div>
+              <img
+                src={image5}
+                alt=""
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white shrink-0"
+              />
+              <div className="bg-orange-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
+                Affordable Tech Solutions
+              </div>
+            </div>
           </div>
         </div>
       </div>

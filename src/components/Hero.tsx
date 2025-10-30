@@ -43,7 +43,7 @@ const Hero = () => {
               </>
             )}
           </h1>
-          <p className="mt-[100px] font-medium sm:text-lg text-[#000000] mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+          <p className="mt-[100px] font-medium sm:text-lg text-[#111111] mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 lg:text-[24px]">
             We turn complex technology into seamless digital solutions that
             empower your business to grow. Every product we create is built with
             precision, innovation, and purpose.

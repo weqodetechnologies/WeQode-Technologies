@@ -6,6 +6,7 @@ import ProjectLifecycle from "@/components/ProjectLifecycle";
 import RecentProjects from "@/components/RecentProjects";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import Cta from "@/components/Cta";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <ProjectLifecycle />
         <RecentProjects />
         <Testimonials />
+        <Cta />
       </main>
       <Footer />
     </div>

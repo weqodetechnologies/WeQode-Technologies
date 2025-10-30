@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0, 0%, 100%;
     --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
@@ -43,12 +43,12 @@ All colors MUST be HSL.
     --brand-purple-light: 270, 40%, 35%;
     --brand-orange: 26, 98%, 63%;
     --brand-orange-light: 26, 98%, 64%;
-    --brand-beige: 40 40% 92%;
+    --brand-beige: 39 90% 92%;
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0, 0%, 100%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 
@@ -66,7 +66,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 260 35% 8%;
+    --background: 0, 0%, 100%;
     --foreground: 0 0% 98%;
 
     --card: 260 35% 12%;
@@ -93,7 +93,7 @@ All colors MUST be HSL.
     --border: 260 20% 25%;
     --input: 260 20% 25%;
     --ring: 260 35% 60%;
-    --sidebar-background: 240 5.9% 10%;
+    --sidebar-background: 0, 0%, 100%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -101,6 +101,18 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Hide scrollbar for all browsers */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 }
 
