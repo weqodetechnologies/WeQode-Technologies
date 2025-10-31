@@ -82,7 +82,10 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
             <ul className="space-y-3 text-lg">
               <li>
-                <a href="#home" className="hover:text-[#F68C2D] transition-all">
+                <a
+                  href="#home"
+                  className="hover:text-[#F68C2D] transition-all font-bold"
+                >
                   Home
                 </a>
               </li>
@@ -130,7 +133,7 @@ const Footer = () => {
                 <Phone className="text-[#F68C2D] w-6 h-6 mt-1" />
                 <div>
                   <p className="font-semibold">Phone</p>
-                  <p>+91 1234567890</p>
+                  <p>+91 7678011969</p>
                 </div>
               </div>
 
