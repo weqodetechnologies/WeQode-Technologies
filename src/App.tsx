@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import ServicePage from "./pages/ServicePage";
 import ContactUs from "./pages/contactUs";
 import AboutUs from "./pages/About";
+import Career from "./pages/Career";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/careers" element={<Career />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
