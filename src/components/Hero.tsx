@@ -18,11 +18,11 @@ const Hero = () => {
       <div className="grid lg:grid-cols-[70%_30%] gap-6 items-center">
         {/* Left Side - Text */}
         <div className="px-5 text-center lg:text-left font-black">
-          <h1 className=" mt-[50px] text-[90px]  sm:text-4xl md:text-5xl lg:text-[90px] mb-4 sm:mb-6 leading-tight">
+          <h1 className=" mt-[50px] text-[90px]  sm:text-4xl md:text-5xl lg:text-[90px] mb-4 sm:mb-6 leading-20 sm:leading-[1.1] lg:leading-[1.1] text-[#111111]">
             {keywords[keywordIndex] === "Redesign" ? (
               <>
                 We{" "}
-                <span className="text-primary transition-all duration-700 ease-in-out">
+                <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out">
                   {keywords[keywordIndex]}
                 </span>
                 <br />
@@ -33,7 +33,7 @@ const Hero = () => {
             ) : (
               <>
                 We Build{" "}
-                <span className="text-primary transition-all duration-700 ease-in-out">
+                <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out ">
                   {keywords[keywordIndex]}
                 </span>
                 <br />
@@ -43,7 +43,7 @@ const Hero = () => {
               </>
             )}
           </h1>
-          <p className="mt-[100px] font-medium sm:text-lg text-[#111111] mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 lg:text-[24px]">
+          <p className="mt-[80px] font-medium sm:text-lg text-[#111111] mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 lg:text-[24px]">
             We turn complex technology into seamless digital solutions that
             empower your business to grow. Every product we create is built with
             precision, innovation, and purpose.

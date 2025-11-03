@@ -54,25 +54,25 @@ const Header = () => {
           {/* Menu (Desktop) */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#home"
+              href="/home"
               className="text-foreground font-medium border-b-2 border-primary pb-1"
             >
               Home
             </a>
             <a
-              href="#services"
+              href="/services"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Services
             </a>
             <a
-              href="#about"
+              href="/about"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               About
             </a>
             <a
-              href="#careers"
+              href="/careers"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Careers
@@ -108,19 +108,19 @@ const Header = () => {
               Home
             </a>
             <a
-              href="#services"
+              href="/services"
               className="block text-muted-foreground hover:text-foreground transition-colors"
             >
               Services
             </a>
             <a
-              href="#about"
+              href="/about"
               className="block text-muted-foreground hover:text-foreground transition-colors"
             >
               About
             </a>
             <a
-              href="#careers"
+              href="/careers"
               className="block text-muted-foreground hover:text-foreground transition-colors"
             >
               Careers

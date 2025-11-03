@@ -169,7 +169,7 @@ const Services = () => {
   return (
     <div>
       {/* Header Section */}
-      <section className="py-16 sm:py-20 bg-background relative overflow-hidden">
+      <section className="bg-background relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
             SERVICES

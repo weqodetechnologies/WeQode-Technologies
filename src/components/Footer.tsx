@@ -83,15 +83,15 @@ const Footer = () => {
             <ul className="space-y-3 text-lg">
               <li>
                 <a
-                  href="#home"
-                  className="hover:text-[#F68C2D] transition-all font-bold"
+                  href="/home"
+                  className="hover:text-[#F68C2D] transition-all "
                 >
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/services"
                   className="hover:text-[#F68C2D] transition-all"
                 >
                   Services
@@ -99,7 +99,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="/about"
                   className="hover:text-[#F68C2D] transition-all"
                 >
                   About
@@ -107,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#careers"
+                  href="/careers"
                   className="hover:text-[#F68C2D] transition-all"
                 >
                   Careers
@@ -115,7 +115,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="hover:text-[#F68C2D] transition-all"
                 >
                   Contact us

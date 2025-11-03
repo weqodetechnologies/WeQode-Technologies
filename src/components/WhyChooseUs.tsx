@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
               <img
                 src={personImage}
                 alt="Creative Thinking"
-                className="w-full sm:w-[500px] h-[120px] sm:h-[140px] object-cover rounded-[36px] sm:rounded-[56px]"
+                className="w-full sm:w-[500px] h-[120px] sm:h-[140px] object-cover rounded-[36px] sm:rounded-[56px] "
               />
             </div>
           </div>
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
           {/* FEATURE ROWS */}
           <div className="flex flex-col items-center lg:items-end gap-3 mt-4 ml-0 lg:ml-16 w-full">
             {/* Row 1 */}
-            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4 mr-0">
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-2 mr-0">
               <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
                 Creative Team
               </div>
@@ -63,19 +63,19 @@ const WhyChooseUs = () => {
               <img
                 src={teamImg}
                 alt=""
-                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-[#424242]"
               />
             </div>
 
             {/* Row 2 */}
-            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-2">
               <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
                 Startup Friendly
               </div>
               <img
                 src={customImg}
                 alt=""
-                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-[#424242]"
               />
               <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
                 Custom Solutions
@@ -83,7 +83,7 @@ const WhyChooseUs = () => {
             </div>
 
             {/* Row 3 */}
-            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-end items-center gap-2 ">
               <div className="bg-orange-400 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
                 High-Quality Designs
               </div>
@@ -93,7 +93,7 @@ const WhyChooseUs = () => {
               <img
                 src={deliveryImg}
                 alt=""
-                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white"
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-[#424242]"
               />
             </div>
 
@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
               <img
                 src={image5}
                 alt=""
-                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-white shrink-0"
+                className="w-[100px] sm:w-[120px] h-[45px] sm:h-[52px] rounded-full object-cover border-4 border-[#424242] shrink-0"
               />
               <div className="bg-orange-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-[16px] sm:text-[18px] shadow whitespace-nowrap">
                 Affordable Tech Solutions
