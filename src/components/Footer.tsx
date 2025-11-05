@@ -89,7 +89,10 @@ const Footer = () => {
           {/* Navigation Section */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
-            <ul className="space-y-3 text-lg">
+            <ul
+              className="space-y-3 text-lg"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <li>
                 <Link to="/" className={getLinkClass("/")}>
                   Home

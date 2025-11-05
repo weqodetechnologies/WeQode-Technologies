@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", controlHeader);
   }, [lastScrollY]);
 
-  // ✅ Nav items (for both desktop & mobile)
+  // ✅ Nav items
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
@@ -34,7 +34,7 @@ const Header = () => {
     { name: "Careers", path: "/careers" },
   ];
 
-  // ✅ Active link class
+  // ✅ Active link style
   const getLinkClass = (path: string) =>
     currentPath === path
       ? "text-[hsl(var(--brand-orange))] font-semibold border-b-2 border-[hsl(var(--brand-orange))] pb-1"
@@ -49,7 +49,10 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-lg sm:text-2xl font-black">
+          <div
+            className="text-lg sm:text-2xl font-black cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <span
               className="font-outfit"
               style={{ color: "hsl(var(--brand-orange))" }}
@@ -62,19 +65,19 @@ const Header = () => {
             >
               Qode
             </span>
-            <span className="font-outfit">Technologies</span>
+            <span className="font-outfit text-foreground">Technologies</span>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.path}
-                href={item.path}
+                to={item.path}
                 className={getLinkClass(item.path)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -105,21 +108,25 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-4 animate-fade-in">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.path}
-                href={item.path}
+                to={item.path}
                 className={`block ${
                   currentPath === item.path
                     ? "text-[hsl(var(--brand-orange))] font-semibold"
                     : "text-muted-foreground hover:text-foreground transition-colors"
                 }`}
-                onClick={() => setIsMenuOpen(false)} // close menu on click
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
+
             <Button
-              onClick={() => navigate("/contact")}
+              onClick={() => {
+                navigate("/contact");
+                setIsMenuOpen(false);
+              }}
               className="w-full text-white rounded-xl px-6 hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "hsl(var(--brand-orange))" }}
             >
