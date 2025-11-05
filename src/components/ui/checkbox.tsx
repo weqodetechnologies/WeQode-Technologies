@@ -1,26 +1,47 @@
-import * as React from "react";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
+import React, { useState } from "react";
 
-import { cn } from "@/lib/utils";
+interface CheckboxProps {
+  checked?: boolean;
+  onChange?: (checked: boolean) => void;
+  size?: number;
+  className?: string;
+}
 
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-      className,
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator className={cn("flex items-center justify-center text-current")}>
-      <Check className="h-4 w-4" />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-));
-Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+const Checkbox: React.FC<CheckboxProps> = ({
+  checked = false,
+  onChange,
+  size = 24,
+  className = "",
+}) => {
+  const [isChecked, setIsChecked] = useState(checked);
 
-export { Checkbox };
+  const handleClick = () => {
+    const newChecked = !isChecked;
+    setIsChecked(newChecked);
+    onChange?.(newChecked);
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`relative flex items-center justify-center rounded-full border-2 border-gray-400 transition-all duration-200 ${className}`}
+      style={{
+        width: size,
+        height: size,
+        backgroundColor: isChecked ? "#ffffff" : "#e0e0e0",
+      }}
+    >
+      <div
+        className={`rounded-full transition-all duration-300 ${
+          isChecked ? "bg-orange-400 scale-75" : "bg-gray-300 scale-50"
+        }`}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      ></div>
+    </button>
+  );
+};
+
+export default Checkbox;

@@ -112,7 +112,7 @@ function FAQ() {
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex justify-between items-center text-left"
                 >
-                  <h3 className="text-[16px] sm:text-[18px] md:text-2xl lg:text-[30px]  font-bold text-[#1A1A1A]">
+                  <h3 className="text-[16px] sm:text-[20px] md:text-[22px] lg:text-[24px]  font-bold text-[#1A1A1A]">
                     {faq.question}
                   </h3>
                   <span className="text-[#1A1A1A] text-2xl transition-all">
@@ -121,7 +121,7 @@ function FAQ() {
                 </button>
 
                 {openIndex === index && (
-                  <p className="mt-3 text-[#333333] text-[20px] sm:text-[24px] md:text-[26px] lg:text-[30px]     font-medium leading-relaxed">
+                  <p className="mt-3 text-[#333333] text-[20px] sm:text-[20px] md:text-[22px] lg:text-[24px]     font-medium leading-relaxed">
                     {faq.answer}
                   </p>
                 )}

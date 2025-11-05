@@ -1,17 +1,95 @@
-import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
 import RobotImg from "../../assets/AvetarImg/sitingonLaptop.png";
-import linkedinIcon from "@/assets/icons/Linkedin.png";
-import TwitterIcon from "@/assets/icons/Xicon.png";
-import instagramIcon from "@/assets/icons/InstaIcon.png";
+
+import Icon from "../icon";
 import { MdPhoneInTalk } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
+import Checkbox from "../../components/ui/checkbox";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const services = [
+    "Web Development",
+    "App Development",
+    "Salesforce Solutions",
+    "UI/UX Design",
+    "Digital Marketing",
+    "Software Consultation",
+  ];
+
+  // Handle form inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // ✅ Prevent checkbox from submitting the form
+  const handleServiceChange = (e, service) => {
+    e.stopPropagation(); // stops event bubbling
+    e.preventDefault(); // stops accidental submit on Enter key
+    setSelectedServices((prev) =>
+      prev.includes(service)
+        ? prev.filter((s) => s !== service)
+        : [...prev, service]
+    );
+  };
+
+  // ✅ Handle submit only on button click
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const selectedServiceList =
+      selectedServices.length > 0
+        ? selectedServices.join(", ")
+        : "No service selected";
+
+    emailjs
+      .send(
+        "service_zb3z4um", // your EmailJS service ID
+        "template_gu87e1j", // your EmailJS template ID
+        {
+          to_email: "info@weqodetech.com",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          services: selectedServiceList,
+        },
+        "d8Bc3rrzINrO1MgeV" // your EmailJS public key
+      )
+      .then(
+        () => {
+          alert("✅ Thank you! Your message has been sent successfully.");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+          setSelectedServices([]);
+        },
+        (error) => {
+          console.error("Error:", error.text);
+          alert("❌ Failed to send message. Please try again later.");
+        }
+      );
+  };
+
   return (
     <section className="max-w-7xl mx-auto my-12 p-6 lg:p-10 border rounded-2xl bg-white mb-12 lg:mb-20 ">
-      <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-8 ">
+      <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6 ">
         {/* Left Section */}
         <div className="bg-[hsl(var(--brand-orange))] rounded-xl text-white flex flex-col justify-between ">
           <div className="p-6 lg:p-10">
@@ -22,162 +100,183 @@ const ContactForm = () => {
               reality.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
                 <p className="flex items-center gap-2 text-white font-bold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[26px]">
-                  <MdPhoneInTalk className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />{" "}
+                  <MdPhoneInTalk className="w-6 h-6 sm:w-6 sm:h-6 md:w-7 md:h-7" />{" "}
                   Phone
                 </p>
 
-                <p className="ml-6 sm:ml-8 md:ml-10 font-medium text-white text-[15px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
+                <p className="font-medium text-white text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
                   +91 1234567890
                 </p>
               </div>
 
               <div>
                 <p className="flex items-center gap-2 text-white font-bold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[26px]">
-                  <MdEmail className="w-4 h-4" /> Email
+                  <MdEmail className="w-6 h-6" /> Email
                 </p>
 
-                <p className="ml-6 sm:ml-8 md:ml-10 font-medium text-white text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px]">
-                  [info@weqodetech.com](mailto:info@weqodetech.com)
+                <p className="ml-6 sm:ml-8 md:ml-10 font-medium text-white text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
+                  info@weqodetech.com
                 </p>
               </div>
 
               <div>
                 <p className="flex items-center gap-2 text-white font-bold text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px]">
-                  <IoLocationSharp className="w-4 h-4" /> Head Office
+                  <IoLocationSharp className="w-6 h-6" /> Head Office
                 </p>
 
-                <p className="ml-6 sm:ml-8 md:ml-10 font-medium text-white text-[16px] sm:text-[18px] md:text-[19px] lg:text-[20px]">
+                <p className="ml-6 sm:ml-8 md:ml-10 font-medium text-white text-[14px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
                   WeQode Technologies, Jaiprakash Nagar, Nagpur
                 </p>
               </div>
             </div>
             {/* Social Icons */}
-            <div className="  py-10 lg:p-10">
-              <p className="text-[30px] font-bold mb-">Follow us</p>
+            <div className=" py-10 lg:p-12">
+              <p className="text-[24px] font-bold  mt-4 mb-4">Follow us</p>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 ">
                 {/* LinkedIn */}
                 <a
-                  href="/"
-                  className="w-10 h-10 border-2  rounded-full flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
+                  href="https://www.linkedin.com/in/weqode-technologies-747438395"
+                  className="flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={linkedinIcon}
-                    alt="LinkedIn"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+                  <Icon type="linkedin" />
                 </a>
                 {/* X (Twitter) */}
                 <a
                   href="#"
-                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
+                  className=" flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={TwitterIcon}
-                    alt="X"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+                  <Icon type="twitter" />
                 </a>
                 {/* Instagram */}
+
                 <a
                   href="#"
-                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
+                  className=" flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={instagramIcon}
-                    alt="Instagram"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+                  <Icon type="instragram" />
                 </a>
               </div>
             </div>
           </div>
         </div>
         {/* Right Section */}
-        <div className="relative">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="border-b border-gray-400 focus:outline-none pb-2 text-sm"
-              />
-
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="border-b border-gray-400 focus:outline-none pb-2 text-sm"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="email"
-                placeholder="Email"
-                className="border-b border-gray-400 focus:outline-none pb-2 text-sm"
-              />
-
-              <input
-                type="text"
-                placeholder="Phone Number"
-                className="border-b border-gray-400 focus:outline-none pb-2 text-sm"
-              />
-            </div>
-
-            <textarea
-              placeholder="Tell us about your project"
-              className="border-b border-gray-400 focus:outline-none pb-2 w-full text-sm"
-            />
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center relative">
-              {/* Left - Services */}
+        <div className="relative bg-white p-6 sm:p-8 rounded-xl shadow-sm">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full max-w-5xl bg-white rounded-2xl shadow-md p-6 sm:p-10 space-y-6"
+          >
+            {/* Name Fields */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
-                <p className="font-semibold mb-3">Services you need?</p>
-
-                <div className="gap-2 text-sm">
-                  {[
-                    "Website Development",
-                    "Web App Development",
-                    "Website + Application Development",
-                    "Application Development",
-                    "Redesigning and revamping",
-                    "Customization and configuration",
-                    "Resource Outcourse",
-                    "Domain Service Management",
-                  ].map((service, index) => (
-                    <label
-                      key={index}
-                      className="flex items-center space-x-2 cursor-pointer"
-                    >
-                      <input
-                        type="radio"
-                        name="service"
-                        className="text-[#FF914D] focus:ring-[#FF914D]"
-                      />
-                      <span>{service}</span>
-                    </label>
-                  ))}
-                </div>
+                <h1 className="font-semibold mb-2">First Name</h1>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="border-b border-gray-700 focus:outline-none pb-2 w-full"
+                />
               </div>
-              {/* Right - Robot Image */}
-              <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">
-                <img
-                  src={RobotImg}
-                  alt="WeQode Robot"
-                  className="w-[180px] h-[190px] sm:w-[210px] sm:h-[220px] md:w-[240px] md:h-[260px] lg:w-[265px] lg:h-[282px] object-contain"
+              <div>
+                <h1 className="font-semibold mb-2">Last Name</h1>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className="border-b border-gray-700 focus:outline-none pb-2 w-full"
                 />
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="bg-[#FF914D] text-white font-medium px-6 py-2 rounded-md hover:bg-[#ff7a26] transition"
-            >
-              Send a message
-            </button>
+            {/* Contact Fields */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <h1 className="font-semibold mb-2">Email</h1>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="border-b border-gray-700 focus:outline-none pb-2 w-full"
+                />
+              </div>
+              <div>
+                <h1 className="font-semibold mb-2">Phone</h1>
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="border-b border-gray-700 focus:outline-none pb-2 w-full"
+                />
+              </div>
+            </div>
+
+            {/* Project Description */}
+            <div>
+              <h1 className="font-semibold mb-2">Tell us about your project</h1>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                required
+                placeholder="Write your message here..."
+                className="border border-gray-700 rounded-md focus:outline-none w-full p-3"
+              />
+            </div>
+
+            {/* Services + Robot Image */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Left Side - Services */}
+              <div>
+                <p className="font-bold text-[20px] mb-3">Services you need?</p>
+                <div className="space-y-3">
+                  {services.map((service, index) => (
+                    <label
+                      key={index}
+                      className="flex items-center space-x-3 cursor-pointer"
+                    >
+                      <Checkbox
+                        checked={selectedServices.includes(service)}
+                        onChange={() => handleServiceChange(service)}
+                        size={18}
+                      />
+                      <span className="text-[16px]">{service}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Side - Robot Image */}
+              <div className="flex justify-center md:justify-end items-center">
+                <img
+                  src={RobotImg}
+                  alt="WeQode Robot"
+                  className="w-[150px] sm:w-[180px] md:w-[230px] lg:w-[260px] h-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex justify-center sm:justify-start">
+              <Button
+                type="submit"
+                className="text-white font-semibold text-base rounded-md px-6 py-3 hover:opacity-90 transition-all"
+                style={{ backgroundColor: "hsl(var(--brand-orange))" }}
+              >
+                Send a Message
+              </Button>
+            </div>
           </form>
         </div>
       </div>
