@@ -74,12 +74,12 @@ const Testimonials = () => {
 
         {/* Heading */}
         <h2
-          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6"
+          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6 lg:mb-10"
           style={{ color: "hsl(var(--brand-orange))" }}
         >
           Testimonials From Our Clients
         </h2>
-        <p className="text-base sm:text-lg text-regular lg:text-[24px] mb-10 max-w-2xl lg:mt-6 sm:mt-4 ">
+        <p className="text-base sm:text-lg text-regular lg:text-[24px] mb-10 max-w-2xl lg:mt-4 sm:mt-4 ">
           Our clients’ words reflect our passion for building meaningful digital
           experiences that are designed to inspire, built to perform.
         </p>

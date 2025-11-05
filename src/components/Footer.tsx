@@ -2,9 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import linkedinIcon from "@/assets/icons/Linkedin.png";
-import TwitterIcon from "@/assets/icons/Xicon.png";
-import instagramIcon from "@/assets/icons/InstaIcon.png";
+
+import Icon from "./icon";
 
 const Footer = () => {
   const location = useLocation();
@@ -55,9 +54,8 @@ const Footer = () => {
                   href="#"
                   className="w-10 h-10 border-2 rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={linkedinIcon}
-                    alt="LinkedIn"
+                  <Icon
+                    type="linkedin"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -67,9 +65,8 @@ const Footer = () => {
                   href="#"
                   className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={TwitterIcon}
-                    alt="X"
+                  <Icon
+                    type="twitter"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -79,9 +76,8 @@ const Footer = () => {
                   href="#"
                   className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={instagramIcon}
-                    alt="Instagram"
+                  <Icon
+                    type="instragram"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
