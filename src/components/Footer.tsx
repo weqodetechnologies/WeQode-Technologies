@@ -2,12 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Icon from "./icon";
 
 const Footer = () => {
   const location = useLocation();
-  const currentPath = location.pathname; // 👈 Detect current route
+  const currentPath = location.pathname;
 
   // ✅ Helper function for active link
   const getLinkClass = (path: string) =>
@@ -90,29 +91,29 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
             <ul className="space-y-3 text-lg">
               <li>
-                <a href="/" className={getLinkClass("/")}>
+                <Link to="/" className={getLinkClass("/")}>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services" className={getLinkClass("/services")}>
+                <Link to="/services" className={getLinkClass("/services")}>
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className={getLinkClass("/about")}>
+                <Link to="/about" className={getLinkClass("/about")}>
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/careers" className={getLinkClass("/careers")}>
+                <Link to="/careers" className={getLinkClass("/careers")}>
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className={getLinkClass("/contact")}>
+                <Link to="/contact" className={getLinkClass("/contact")}>
                   Contact us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
