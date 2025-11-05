@@ -1,10 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail, MapPin } from "lucide-react";
-import linkedinIcon from "@/assets/Icons/Linkedin.png";
-import TwitterIcon from "@/assets/icons/Xicon.png";
-import instagramIcon from "@/assets/icons/InstaIcon.png";
+import { useLocation } from "react-router-dom";
+
+import Icon from "./icon";
+
 const Footer = () => {
+  const location = useLocation();
+  const currentPath = location.pathname; // 👈 Detect current route
+
+  // ✅ Helper function for active link
+  const getLinkClass = (path: string) =>
+    currentPath === path
+      ? "text-[#F68C2D] font-semibold transition-all"
+      : "hover:text-[#F68C2D] transition-all";
+
   return (
     <footer className="bg-[#512E78] text-white py-12 sm:py-16">
       <div className="container mx-auto px-6 md:px-12">
@@ -34,6 +44,7 @@ const Footer = () => {
                 Let’s Talk
               </Button>
             </div>
+
             {/* Social Icons */}
             <div className="mt-8">
               <p className="text-lg font-medium mb-4">Follow us</p>
@@ -41,11 +52,10 @@ const Footer = () => {
                 {/* LinkedIn */}
                 <a
                   href="#"
-                  className="w-10 h-10 border-2  rounded-full flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
+                  className="w-10 h-10 border-2 rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={linkedinIcon}
-                    alt="LinkedIn"
+                  <Icon
+                    type="linkedin"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -53,11 +63,10 @@ const Footer = () => {
                 {/* X (Twitter) */}
                 <a
                   href="#"
-                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden  hover:text-[#512E78] transition-all"
+                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={TwitterIcon}
-                    alt="X"
+                  <Icon
+                    type="twitter"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -67,9 +76,8 @@ const Footer = () => {
                   href="#"
                   className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
                 >
-                  <img
-                    src={instagramIcon}
-                    alt="Instagram"
+                  <Icon
+                    type="instragram"
                     className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
@@ -82,39 +90,27 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Navigation</h3>
             <ul className="space-y-3 text-lg">
               <li>
-                <a href="#home" className="hover:text-[#F68C2D] transition-all">
+                <a href="/" className={getLinkClass("/")}>
                   Home
                 </a>
               </li>
               <li>
-                <a
-                  href="#services"
-                  className="hover:text-[#F68C2D] transition-all"
-                >
+                <a href="/services" className={getLinkClass("/services")}>
                   Services
                 </a>
               </li>
               <li>
-                <a
-                  href="#about"
-                  className="hover:text-[#F68C2D] transition-all"
-                >
+                <a href="/about" className={getLinkClass("/about")}>
                   About
                 </a>
               </li>
               <li>
-                <a
-                  href="#careers"
-                  className="hover:text-[#F68C2D] transition-all"
-                >
+                <a href="/careers" className={getLinkClass("/careers")}>
                   Careers
                 </a>
               </li>
               <li>
-                <a
-                  href="#contact"
-                  className="hover:text-[#F68C2D] transition-all"
-                >
+                <a href="/contact" className={getLinkClass("/contact")}>
                   Contact us
                 </a>
               </li>
@@ -130,7 +126,7 @@ const Footer = () => {
                 <Phone className="text-[#F68C2D] w-6 h-6 mt-1" />
                 <div>
                   <p className="font-semibold">Phone</p>
-                  <p>+91 1234567890</p>
+                  <p>+91 7678011969</p>
                 </div>
               </div>
 

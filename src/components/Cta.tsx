@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import mascot from "@/assets/sittingLaptopRobo.png";
+import mascot from "@/assets/AvetarImg/sittingLaptopRobo.png";
 
 function Cta() {
   return (
