@@ -1,11 +1,10 @@
-import React from "react";
-import arrowImg from "../assets/lifeCycle imeges/Arrow.png";
-import brainstormImg from "../assets/lifeCycle imeges/brainstorm.png";
-import planImg from "../assets/lifeCycle imeges/plan-.png";
-import designImg from "../assets/lifeCycle imeges/Design.png";
-import developmentImg from "../assets/lifeCycle imeges/Development.png";
-import testingImg from "../assets/lifeCycle imeges/Testing.png";
-import launchImg from "../assets/lifeCycle imeges/Launch.png";
+import arrowImg from "../assets/lifeCycleImeges/Arrow.png";
+import brainstormImg from "../assets/lifeCycleImeges/brainstorm.png";
+import planImg from "../assets/lifeCycleImeges/plan-.png";
+import designImg from "../assets/lifeCycleImeges/Design.png";
+import developmentImg from "../assets/lifeCycleImeges/Development.png";
+import testingImg from "../assets/lifeCycleImeges/Testing.png";
+import launchImg from "../assets/lifeCycleImeges/launch.png";
 
 const photos = [
   brainstormImg,
