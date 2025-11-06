@@ -11,7 +11,7 @@ const photos = [
   brainstormImg,
   planImg,
   designImg,
-  developmentImg, // ✅ Will load now
+  developmentImg,
   testingImg,
   launchImg,
 ];
