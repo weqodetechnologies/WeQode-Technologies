@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Icon from "../icon";
-import work from "../ui/work";
 
 const jobList = [
   {
@@ -35,12 +34,13 @@ Strong communication and negotiation skills are essential.`,
   },
 ];
 
-const CareerGrowthGraph: React.FC = () => {
+const CareerGrowthGraph = () => {
   const [openJob, setOpenJob] = useState(null);
 
   const handleToggle = (id) => {
     setOpenJob(openJob === id ? null : id);
   };
+
   const cards = [
     {
       icon: (
@@ -49,7 +49,6 @@ const CareerGrowthGraph: React.FC = () => {
           className="text-4xl transition-all duration-300 group-hover:text-[#E7CEFF]"
         />
       ),
-
       title: "Impact",
       desc: "Contribute to projects that make a real difference for global brands.",
     },
@@ -77,69 +76,72 @@ const CareerGrowthGraph: React.FC = () => {
       icon: (
         <Icon
           type="bulf"
-          className="text-4xl transition-all duration-300  group-hover:text-[#E7CEFF]"
+          className="text-4xl transition-all duration-300 group-hover:text-[#E7CEFF]"
         />
       ),
       title: "Creativity",
       desc: "Bring your ideas to life with the freedom to explore and innovate.",
     },
   ];
+
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-16 ">
-      <div className="px-5 text-center lg:text-left font-black gap-6">
-        <h1 className="mt-[50px] text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] mb-4 sm:mb-6 leading-tight text-[#111111]">
-          Building Bright
-          <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out mx-4">
-            Futures{" "}
+    <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-20 overflow-x-hidden max-w-full">
+      {/* Heading */}
+      <div className="px-3 sm:px-5 text-center lg:text-left font-black gap-6 max-w-7xl mx-auto">
+        <h1 className="mt-12 sm:mt-16 text-[32px] sm:text-[60px] md:text-[75px] lg:text-[90px] mb-6 leading-tight text-[#111111]">
+          Building Bright{" "}
+          <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out mx-2 sm:mx-4">
+            Futures
           </span>
           <br />
           With Innovation and <br />
           Passion
         </h1>
-
-        <p className="mt-[40px] sm:mt-[60px] font-medium text-base sm:text-lg md:text-xl text-[#111111] mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 lg:text-[24px]">
+        <p className="mt-8 sm:mt-12 font-medium text-base sm:text-lg md:text-xl text-[#111111] mb-8 max-w-3xl mx-auto lg:mx-0 lg:text-[24px]">
           We’re a team of creators helping startups build digital products that
           inspire, perform, and grow — all without breaking the bank.
         </p>
       </div>
 
-      {/* JOin our team */}
-      <div className="container mx-auto px-4 sm:px-6 mt-[150px]">
-        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
+      {/* Join Our Team */}
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 mt-20 sm:mt-32">
+        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none truncate">
           JOIN
         </div>
         <h2
-          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6"
+          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-6 sm:mb-8"
           style={{ color: "hsl(var(--brand-orange))" }}
         >
           Join our team!
         </h2>
-        <p className="text-base sm:text-lg text-regular lg:text-[24px] mb-6 max-w-[1100px] lg:mt-10 sm:mt-4 ">
+        <p className="text-base sm:text-lg text-regular lg:text-[24px] mb-8 max-w-4xl lg:mt-10 sm:mt-4">
           Join WeQode Technologies and grow with a team that values innovation,
           collaboration, and excellence. Work on meaningful digital projects
           that challenge and inspire you.
           <br /> Here, your ideas make an impact.
         </p>
-        <div className="max-w-10xl mx-auto px-4 py-10 space-y-6">
+
+        {/* Job List */}
+        <div className="space-y-6 max-w-6xl mx-auto">
           {jobList.map((job) => (
             <div
               key={job.id}
-              className="bg-[#FFF8F3] rounded-2xl p-6 sm:p-8 shadow-sm transition-all duration-300"
+              className="bg-[#FFF8F3] rounded-2xl p-5 sm:p-8 shadow-sm transition-all duration-300"
             >
               {/* Header */}
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
-                <div>
-                  <p className="text-[hsl(var(--brand-purple))] text-[20px] font-medium">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-8">
+                <div className="min-w-0">
+                  <p className="text-[hsl(var(--brand-purple))] text-lg sm:text-xl font-medium truncate">
                     {job.category}
                   </p>
-                  <h3 className="text-lg sm:text-[24px] font-bold text-[#1A1A1A]">
+                  <h3 className="text-lg sm:text-2xl font-bold text-[#1A1A1A] truncate">
                     {job.title}
                   </h3>
-                  <div className="flex gap-5 text-[#000000] text-sm mt-2">
-                    <div className="flex items-center gap-1">
+                  <div className="flex gap-5 text-[#000000] text-sm mt-2 flex-wrap">
+                    <div className="flex items-center gap-1 whitespace-nowrap">
                       <Icon type="location" /> {job.location}
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 whitespace-nowrap">
                       <Icon type="clock" />
                       {job.type}
                     </div>
@@ -148,7 +150,7 @@ const CareerGrowthGraph: React.FC = () => {
 
                 <button
                   onClick={() => handleToggle(job.id)}
-                  className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                  className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 min-w-[100px] ${
                     openJob === job.id
                       ? "bg-[hsl(var(--brand-purple))] text-white"
                       : "bg-[hsl(var(--brand-orange))] text-white"
@@ -160,49 +162,47 @@ const CareerGrowthGraph: React.FC = () => {
 
               {/* Expanded content */}
               {openJob === job.id && (
-                <div className="mt-4 text-[18px] text-[#000] font-medium leading-[20px]">
-                  {job.description.split("\n").map((line, index) => (
-                    <p key={index} className="mb-2">
-                      {line}
-                    </p>
-                  ))}
+                <div className="mt-4 text-[18px] text-[#000] font-medium leading-7 whitespace-pre-wrap">
+                  {job.description}
                 </div>
               )}
             </div>
           ))}
         </div>
       </div>
-      {/* what set us apart */}
-      <div className="container mx-auto px-4 sm:px-6 mt-[150px]">
-        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none ">
+
+      {/* Why Join Us Section */}
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 mt-20 sm:mt-32">
+        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none truncate">
           WHY
         </div>
         <h2
-          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6 ml-1  lg:ml-[18px] md:ml-[15px] sm:ml-[10px]  "
+          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-6 sm:mb-8 ml-1 sm:ml-2"
           style={{ color: "hsl(var(--brand-orange))" }}
         >
           Why Join Us?
         </h2>
-        <p className="text-base sm:text-lg  font-regular lg:text-[24px] mb-6 max-w-[1120px] lg:mt-10 sm:mt-4 ">
+        <p className="text-base sm:text-lg font-regular lg:text-[24px] mb-8 max-w-4xl lg:mt-10 sm:mt-4 whitespace-pre-line">
           Our process is built to turn ideas into impactful digital experiences
           from <br />
           research and strategy to design, development, and launch
         </p>
+
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-[120px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center text-center 
-                 bg-[#E7CEFF] hover:bg-[#533074] text-[#1A1A1A] hover:text-white 
-                 rounded-2xl p-6 sm:p-8  transition-all duration-300 shadow-md
+              className="group flex flex-col items-center text-center
+                 bg-[#E7CEFF] hover:bg-[#533074] text-[#1A1A1A] hover:text-white
+                 rounded-2xl p-6 sm:p-8 transition-all duration-300 shadow-md
                  w-full sm:max-w-[280px] md:max-w-[280px] lg:w-[298px] lg:h-[318px] mx-auto"
             >
               <div className="bg-[#ffffff]/30 rounded-full p-4 mb-4 text-[#533074] group-hover:text-[#E7CEFF] transition-all duration-300">
                 {card.icon}
               </div>
               <h3 className="font-bold text-[24px] mb-2">{card.title}</h3>
-              <p className="font-medium text-[18px] leading-relaxed text-[#000000] group-hover:text-white ">
+              <p className="font-medium text-[18px] leading-relaxed text-[#000000] group-hover:text-white">
                 {card.desc}
               </p>
             </div>
@@ -210,44 +210,47 @@ const CareerGrowthGraph: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 mt-[150px]">
-        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none ">
+      {/* Life at WeQode */}
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 mt-20 sm:mt-32 mb-20">
+        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none truncate">
           LIFE
         </div>
         <h2
-          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6 ml-1  lg:ml-[8px] md:ml-[15px] sm:ml-[10px]  "
+          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-6 sm:mb-8 ml-1 sm:ml-2"
           style={{ color: "hsl(var(--brand-orange))" }}
         >
           Life At WeQode
         </h2>
-        <p className="text-base sm:text-lg  font-regular lg:text-[24px] mb-6 max-w-[1120px] lg:mt-10 sm:mt-4 ">
+        <p className="text-base sm:text-lg font-regular lg:text-[24px] mb-8 max-w-4xl lg:mt-10 sm:mt-4 whitespace-pre-line">
           At WeQode, we blend creativity and technology to deliver custom-
           <br />
           built digital experiences. Explore what we can create together.
         </p>
+
         <div>
           <h2
-            className="text-2xl sm:text-3xl lg:text-[32px] font-bold  mt-[120px] sm:mt-[150px] ml-1  lg:mt-[80px]  "
+            className="text-2xl sm:text-3xl lg:text-[32px] font-bold mt-20 sm:mt-24 ml-1 sm:ml-2"
             style={{ color: "hsl(var(--brand-purple))" }}
           >
             Where Innovation Meets Growth
           </h2>
 
-          <p className="font-regular text-base sm:text-lg md:text-xl lg:text-[24px]   text-[#000000] leading-7 lg:leading-8 mt-4 sm:mt-6">
+          <p className="font-regular text-base sm:text-lg md:text-xl lg:text-[24px] text-[#000000] leading-7 lg:leading-8 mt-4 sm:mt-6 max-w-4xl">
             At WeQode, we foster a culture built on creativity, collaboration,
             and continuous learning.
             <br />
             Every idea is valued, every voice is heard, and every individual is
             empowered to grow with purpose.
           </p>
+
           <h2
-            className="text-2xl sm:text-3xl lg:text-[32px] font-bold  mt-[120px] sm:mt-[150px] ml-1  lg:mt-[80px]   "
+            className="text-2xl sm:text-3xl lg:text-[32px] font-bold mt-20 sm:mt-24 ml-1 sm:ml-2"
             style={{ color: "hsl(var(--brand-purple))" }}
           >
             Our Work Ethos
           </h2>
 
-          <p className="font-regular text-base sm:text-lg md:text-xl lg:text-[24px]   text-[#000000] leading-7 lg:leading-8 mt-4 sm:mt-6">
+          <p className="font-regular text-base sm:text-lg md:text-xl lg:text-[24px] text-[#000000] leading-7 lg:leading-8 mt-4 sm:mt-6 max-w-4xl">
             We believe in working smarter, growing together, and delivering with
             excellence.
             <br />
