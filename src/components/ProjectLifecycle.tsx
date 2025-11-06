@@ -1,24 +1,29 @@
 import React from "react";
 import arrowImg from "../assets/lifeCycle imeges/Arrow.png";
+import brainstormImg from "../assets/lifeCycle imeges/brainstorm.png";
+import planImg from "../assets/lifeCycle imeges/plan-.png";
+import designImg from "../assets/lifeCycle imeges/Design.png";
+import developmentImg from "../assets/lifeCycle imeges/Development.png";
+import testingImg from "../assets/lifeCycle imeges/Testing.png";
+import launchImg from "../assets/lifeCycle imeges/Launch.png";
 
 const photos = [
-  "/src/assets/lifeCycle imeges/brainstorm.png",
-  "/src/assets/lifeCycle imeges/plan-.png",
-  "/src/assets/lifeCycle imeges/Design.png",
-  "/src/assets/lifeCycle imeges/Development.png",
-  "/src/assets/lifeCycle imeges/Testing.png",
-  "/src/assets/lifeCycle imeges/Launch.png",
+  brainstormImg,
+  planImg,
+  designImg,
+  developmentImg, // ✅ Will load now
+  testingImg,
+  launchImg,
 ];
 
 const stages = [
-  { title: "Brainstorm", position: "top" },
-  { title: "Plan", position: "top" },
-  { title: "Design", position: "top" },
-  { title: "Development", position: "bottom" },
-  { title: "Testing", position: "bottom" },
-  { title: "Launch", position: "bottom" },
+  "Brainstorm",
+  "Plan",
+  "Design",
+  "Development",
+  "Testing",
+  "Launch",
 ];
-
 const ProjectLifecycle = () => (
   <section className="py-12 sm:py-16 lg:py-20">
     <div className="container mx-auto px-4 sm:px-6">
@@ -39,68 +44,85 @@ const ProjectLifecycle = () => (
         </p>
       </div>
 
-      {/* Main Layout (Responsive for all devices) */}
-      <div className="relative flex flex-col items-center gap-10 sm:gap-16">
-        {/* Top Row */}
-        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 md:gap-16 lg:gap-28 relative">
-          {stages.slice(0, 3).map((stage, index) => (
+      {/* ✅ MOBILE LAYOUT (Vertical Flow) */}
+      <div className="flex flex-col sm:hidden items-center gap-10">
+        {stages.map((stage, index) => (
+          <div key={index} className="flex flex-col items-center">
+            <img
+              src={photos[index]}
+              alt={stage}
+              className="w-[160px] h-auto object-contain"
+            />
+            <h3 className="text-lg font-bold mt-4">{stage}</h3>
+
+            {/* Arrow except last */}
+            {index < stages.length - 1 && (
+              <img
+                src={arrowImg}
+                alt="arrow"
+                className="w-[40px] rotate-90 my-3"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* ✅ DESKTOP / TABLET LAYOUT (Original But Fixed) */}
+      <div className="hidden sm:flex flex-col items-center gap-16">
+        {/* TOP ROW */}
+        <div className="flex justify-center items-center gap-12 md:gap-16 lg:gap-28 relative">
+          {[0, 1, 2].map((index) => (
             <div key={index} className="relative flex flex-col items-center">
               <img
                 src={photos[index]}
-                alt={stage.title}
-                className="w-[140px] sm:w-[200px] md:w-[260px] lg:w-[320px] h-auto object-contain"
+                alt={stages[index]}
+                className="w-[150px] md:w-[220px] lg:w-[300px] h-auto object-contain"
               />
-              <h3 className="text-sm sm:text-lg md:text-2xl lg:text-[28px] font-bold mt-3 sm:mt-4 lg:mt-5 text-center">
-                {stage.title}
+              <h3 className="text-lg md:text-2xl lg:text-[28px] font-bold mt-5">
+                {stages[index]}
               </h3>
 
-              {/* Right Arrow Between Boxes */}
+              {/* Arrow between items */}
               {index < 2 && (
                 <img
                   src={arrowImg}
-                  alt="arrow"
-                  className="absolute top-1/2 right-[-45px] sm:right-[-70px] md:right-[-90px] lg:right-[-100px] -translate-y-1/2 w-[40px] sm:w-[55px] md:w-[65px] lg:w-[71px] rotate-0"
+                  className="absolute top-1/2 right-[-60px] md:right-[-60px] lg:right-[-100px] -translate-y-1/2 w-[50px] md:w-[60px] lg:w-[70px]"
                 />
               )}
             </div>
           ))}
         </div>
-
-        {/* Downward Arrow Center */}
-        <div className="flex justify-center ml-0 sm:ml-0 md:ml-0 lg:ml-[850px]">
+        <div className="w-full flex justify md:justify-end lg:justify-end md:pr-[70px] lg:pr-[230px]">
+          {/* Down Arrow (Right Side) */}
           <img
             src={arrowImg}
             alt="down arrow"
-            className="w-[40px] sm:w-[55px] md:w-[65px] lg:w-[71px] rotate-90 "
+            className="w-[20px] sm:w-[55px] md:w-[65px] lg:w-[71px] rotate-90"
           />
         </div>
 
-        {/* Bottom Row (reversed for flow continuity) */}
-        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 md:gap-16 lg:gap-28 relative">
-          {stages
-            .slice(3, 6)
-            .reverse()
-            .map((stage, index) => (
-              <div key={index} className="relative flex flex-col items-center">
-                <img
-                  src={photos[5 - index]}
-                  alt={stage.title}
-                  className="w-[140px] sm:w-[200px] md:w-[260px] lg:w-[320px] h-auto object-contain"
-                />
-                <h3 className="text-sm sm:text-lg md:text-2xl lg:text-[28px] font-bold mt-3 sm:mt-4 lg:mt-5 text-center">
-                  {stage.title}
-                </h3>
+        {/* BOTTOM ROW */}
+        <div className="flex justify-center items-center gap-12 md:gap-16 lg:gap-28 relative">
+          {[5, 4, 3].map((index, idx) => (
+            <div key={idx} className="relative flex flex-col items-center">
+              <img
+                src={photos[index]}
+                alt={stages[index]}
+                className="w-[150px] md:w-[220px] lg:w-[300px] h-auto object-contain"
+              />
+              <h3 className="text-lg md:text-2xl lg:text-[28px] font-bold mt-5">
+                {stages[index]}
+              </h3>
 
-                {/* Left Arrows Between Boxes */}
-                {index < 2 && (
-                  <img
-                    src={arrowImg}
-                    alt="arrow"
-                    className="absolute top-1/2 right-[-45px] sm:right-[-70px] md:right-[-90px] lg:right-[-100px] -translate-y-1/2 w-[40px] sm:w-[55px] md:w-[65px] lg:w-[71px] rotate-180"
-                  />
-                )}
-              </div>
-            ))}
+              {/* Left arrows */}
+              {idx < 2 && (
+                <img
+                  src={arrowImg}
+                  className="absolute top-1/2 right-[-60px] md:right-[-60px] lg:right-[-100px] -translate-y-1/2 rotate-180 w-[50px] md:w-[60px] lg:w-[70px]"
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

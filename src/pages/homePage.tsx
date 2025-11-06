@@ -10,7 +10,7 @@ import Cta from "@/components/Cta";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div  >
       <Header />
       <main>
         <Hero />

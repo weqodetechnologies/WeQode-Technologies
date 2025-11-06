@@ -8,37 +8,19 @@ const RecentProjects = () => {
       projectImages: Laptop,
       title: "Paws & Co.",
       description:
-        "Welcome to Paws & Co., a modern pet store website crafted to make pet parenting effortless and joyful. With a warm color palette and intuitive layout, it offers everything from pet food and care essentials to expert services, all in one place. The design focuses on trust, comfort, and community because every pet deserves the best.",
-
-      sizes: {
-        sm: { width: 405, height: 295 },
-        md: { width: 405, height: 275 },
-        lg: { width: 405, height: 275 },
-      },
+        "Welcome to Paws & Co., a modern pet store website crafted to make pet parenting effortless and joyful. With a warm color palette and intuitive layout, it offers everything from pet food and care essentials to expert services, all in one place.",
     },
     {
       projectImages: Mobile,
       title: "Trimly",
       description:
-        "Welcome to Trimly a modern salon booking app designed to simplify self-care and beauty management. With a sleek dark interface and smooth navigation, it allows users to explore salons, compare services, and book appointments effortlessly. This design blends elegance and usability, offering a seamless experience that feels professional and empowering.",
-      color: "hsl(var(--brand-purple))",
-      sizes: {
-        sm: { width: 153, height: 295 },
-        md: { width: 153, height: 295 },
-        lg: { width: 153, height: 295 },
-      },
+        "Trimly is a salon booking app designed to simplify self-care with a sleek UI, smooth navigation, and fast appointment booking.",
     },
     {
       projectImages: Tab,
       title: "Fox Jeans Dashboard",
       description:
-        "The Fox Jeans Admin Dashboard provides a complete overview of business performance, showcasing product details, sales, profit margins, and key statistics in real time. It enables admins to track growth, monitor inventory, and analyse business trends effortlessly, all in one intuitive interface designed for clarity and efficiency.",
-      color: "hsl(var(--brand-purple))",
-      sizes: {
-        sm: { width: 379, height: 271 },
-        md: { width: 379, height: 271 },
-        lg: { width: 371, height: 479 },
-      },
+        "A powerful admin dashboard providing real-time stats, product analytics, and performance tracking in a clean and efficient interface.Fox Jeans Dashboard ensures smooth management, improved visibility, and smarter workflow execution for growing fashion and retail businesses.",
     },
   ];
 
@@ -47,7 +29,7 @@ const RecentProjects = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mb-12 sm:mb-16">
-          <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-bold text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px]">
+          <div className="text-[40px] sm:text-[80px] lg:text-[128px] font-bold text-[#E5E5E5] leading-none mb-[-20px] sm:mb-[-40px] lg:mb-[-60px]">
             RECENT
           </div>
           <h2
@@ -57,38 +39,61 @@ const RecentProjects = () => {
             Recent Projects
           </h2>
           <p className="text-base sm:text-lg lg:text-[24px] mt-6 max-w-2xl">
-            Every project we create blends strategy, design, and technology to
-            deliver impactful digital experiences.
+            Every project we create blends strategy, design, and technology for
+            impactful digital experiences.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          className="
+    flex gap-6 overflow-x-auto sm:overflow-x-auto md:overflow-x-auto
+    snap-x snap-mandatory
+    lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible
+    scrollbar-hide
+  "
+        >
           {projects.map((project, index) => (
             <div
               key={index}
-              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full bg-[hsl(var(--brand-purple))]"
+              className="
+        rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow 
+        flex-shrink-0 w-[85%] sm:w-[70%] md:w-[60%]
+        lg:w-auto lg:flex-shrink
+        bg-[hsl(var(--brand-purple))]
+        snap-center
+      "
             >
-              <div className="h-48 sm:h-56 lg:h-[330px] bg-[hsl(var(--brand-beige))] flex items-center justify-center">
+              {/* Responsive Image Container */}
+              <div
+                className="
+          bg-[hsl(var(--brand-beige))]
+          flex items-center justify-center 
+          p-6 sm:p-8 
+          md:justify-center
+          min-h-[260px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[360px]
+        "
+              >
                 <img
                   src={project.projectImages}
                   alt={project.title}
-                  className="object-contain mx-auto"
-                  style={{
-                    width: `${project.sizes.sm.width}px`,
-                    height: `${project.sizes.sm.height}px`,
-                  }}
+                  className={`
+            object-contain mx-auto
+            ${
+              project.title === "Trimly"
+                ? "max-w-[100px] sm:max-w-[100px] md:max-w-[130px] lg:max-w-[150px]"
+                : "w-full max-w-[350px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[380px]"
+            }
+          `}
                 />
               </div>
 
-              <div
-                className="p-6 sm:p-8 text-white"
-                style={{ backgroundColor: "hsl(var(--brand-purple))" }}
-              >
-                <h3 className="text-xl sm:text-2xl lg:text-[36px] font-bold mb-3 sm:mb-4">
+              {/* Content */}
+              <div className="p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl lg:text-[32px] font-bold mb-4">
                   {project.title}
                 </h3>
-                <p className="text-white text-regular sm:text-[20px]">
+                <p className="text-sm sm:text-base lg:text-[20px] leading-relaxed opacity-90">
                   {project.description}
                 </p>
               </div>

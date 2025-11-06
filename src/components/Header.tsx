@@ -14,16 +14,30 @@ const Header = () => {
   // ✅ Hide/show header on scroll
   useEffect(() => {
     const controlHeader = () => {
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        setIsVisible(true); // ✅ always visible on mobile
+        return;
+      }
+
+      // ✅ Desktop behavior (hide on scroll down)
       if (window.scrollY > lastScrollY && window.scrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
+
       setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", controlHeader);
-    return () => window.removeEventListener("scroll", controlHeader);
+    window.addEventListener("resize", controlHeader);
+
+    return () => {
+      window.removeEventListener("scroll", controlHeader);
+      window.removeEventListener("resize", controlHeader);
+    };
   }, [lastScrollY]);
 
   // ✅ Nav items
@@ -69,7 +83,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -84,7 +98,7 @@ const Header = () => {
           {/* Contact Button (Desktop) */}
           <Button
             onClick={() => navigate("/contact")}
-            className="hidden md:flex text-white rounded-xl px-6 hover:opacity-90 transition-opacity"
+            className="hidden lg:flex text-white rounded-xl px-6 hover:opacity-90 transition-opacity"
             style={{ backgroundColor: "hsl(var(--brand-orange))" }}
           >
             Contact us
@@ -92,7 +106,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -106,7 +120,7 @@ const Header = () => {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 animate-fade-in">
+          <div className="lg:hidden mt-4 pb-4 space-y-4 animate-fade-in">
             {navItems.map((item) => (
               <Link
                 key={item.path}

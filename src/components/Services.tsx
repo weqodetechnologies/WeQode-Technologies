@@ -63,8 +63,8 @@ const Services = () => {
       className="py-10 sm:py-12 md:py-16 lg:py-20 bg-[#ffffff]"
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="mb-10 sm:mb-16">
-          <div className="text-[40px] sm:text-[60px] md:text-[70px] lg:text-[120px] font-bold leading-none mb-[-20px] sm:mb-[-30px] md:mb-[-40px] lg:mb-[-60px] text-[#E5E5E5]">
+        <div className="mb-10 sm:mb-16 text-center lg:text-left">
+          <div className="text-[40px] sm:text-[60px] md:text-[70px] lg:text-[120px] font-bold leading-none mb-[-30px] sm:mb-[-36px] md:mb-[-42px] lg:mb-[-56px] text-[#E5E5E5]">
             SERVICES
           </div>
           <h2
@@ -100,7 +100,10 @@ const Services = () => {
             >
               {/* Hover Overlay */}
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="  absolute inset-0 opacity-0
+    group-hover:opacity-100 
+    active:opacity-100 
+    transition-opacity duration-500"
                 style={{
                   backgroundColor:
                     service.variant === "purple"
@@ -207,7 +210,8 @@ const Services = () => {
 
                         {/* Hover overlay */}
                         <span
-                          className="absolute inset-0 rounded-full flex items-center justify-center transition-all duration-500 opacity-0 group-hover:opacity-100"
+                          className="absolute inset-0 rounded-full flex items-center justify-center transition-all duration-500 opacity-0 group-hover:opacity-100 active:opacity-100
+"
                           style={{
                             backgroundColor: hoverBg,
                             color: hoverText,

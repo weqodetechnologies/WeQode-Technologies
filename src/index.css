@@ -114,6 +114,15 @@ All colors MUST be HSL.
     scrollbar-width: none;
     /* Firefox */
   }
+
+  .feature-pill {
+    @apply bg-orange-400 text-white px-5 sm:px-7 md:px-8 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-[16px] md:text-[18px] shadow whitespace-nowrap;
+  }
+
+  .feature-img {
+    @apply w-[70px] sm:w-[90px] md:w-[120px] h-[35px] sm:h-[48px] md:h-[52px] rounded-full object-cover border-4 border-[#424242];
+  }
+
 }
 
 @layer base {
