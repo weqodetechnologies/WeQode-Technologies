@@ -70,17 +70,16 @@ const Hero = () => {
         </div>
 
         {/* Right Section - Mascot */}
-        <div className="flex justify-center lg:justify-end order-first lg:order-last">
+        <div className="flex justify-center items-center lg:justify-end order-first lg:order-last w-full">
           <img
             src={mascot}
             alt="WeQode Mascot Robot"
             className="
-              w-[70%] sm:w-[60%] md:w-[55%] lg:w-[420px] 
-              max-w-full h-auto 
-              animate-float 
-              rounded-2xl 
-              mx-auto lg:mx-0
-            "
+      w-[70%] sm:w-[60%] md:w-[55%] lg:w-[420px] 
+      max-w-full h-auto 
+      animate-float 
+      rounded-2xl
+    "
           />
         </div>
       </div>

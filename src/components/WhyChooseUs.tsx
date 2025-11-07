@@ -9,9 +9,10 @@ import arrowImg from "../assets/why Choose us images/arro.png";
 const WhyChooseUs = () => {
   return (
     <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 bg-[#FFF8F0] overflow-x-hidden">
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
+      <div className="grid lg:grid-cols-[30%_65%]  gap-10 items-start">
         {/* LEFT SECTION */}
-        <div className="text-center lg:text-left">
+
+        <div className="text-center lg:text-left lg:mt-[150px]">
           <h1
             className="
     text-[45px] sm:text-[70px] md:text-[90px] lg:text-[125px]
@@ -40,10 +41,10 @@ const WhyChooseUs = () => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="flex flex-col items-center lg:items-end w-full relative">
+        <div className="flex flex-col items-center lg:items-end w-full relative ">
           {/* SPEECH BUBBLE */}
-          <div className="flex flex-col items-center lg:items-end mb-8 relative w-full">
-            <div className="bg-[#49B3F9] text-[14px] sm:text-[18px] md:text-[19px] lg:text-[20px] text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full shadow-md text-center w-full sm:w-[500px] md:w-[540px] z-10">
+          <div className="flex flex-col items-center lg:items-center mb-8 relative w-full">
+            <div className="bg-[#49B3F9] text-[14px] sm:text-[18px] md:text-[19px] lg:ml-[340px] lg:text-[20px] text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full shadow-md text-center w-full sm:w-[500px] md:w-[540px] z-10">
               We don’t just think — we create crazy cool stuff!
             </div>
 
@@ -51,11 +52,11 @@ const WhyChooseUs = () => {
             <img
               src={arrowImg}
               alt="Arrow"
-              className="hidden sm:block absolute top-[55px] sm:top-[65px] md:top-[72px] right-[55%] md:right-[280px] lg:right-[480px] w-[45px] sm:w-[60px] md:w-[70px] h-[38px] sm:h-[50px] md:h-[60px] rotate-[15deg]"
+              className="hidden  md:mr-[290px]  sm:block absolute top-[55px] sm:top-[65px] md:top-[72px] right-[55%] md:right-[280px] lg:right-[195px] w-[45px] sm:w-[60px] md:w-[70px] h-[38px] sm:h-[50px] md:h-[60px] rotate-[15deg]"
             />
 
             {/* MAIN IMAGE */}
-            <div className="mt-8 sm:mt-10 lg:mr-2 rounded-[30px] sm:rounded-[40px] md:rounded-[56px] overflow-hidden shadow-lg w-full sm:w-auto">
+            <div className="mt-8 sm:mt-10 md:ml-14 lg:ml-[380px] rounded-[30px] sm:rounded-[40px] md:rounded-[56px] overflow-hidden shadow-lg w-full sm:w-auto">
               <img
                 src={personImage}
                 alt="Creative Thinking"
@@ -66,33 +67,63 @@ const WhyChooseUs = () => {
 
           {/* FEATURE ROWS */}
 
-          <div className="flex flex-col items-center lg:items-end gap-5 mt-6 ml-0 lg:ml-16 w-full">
+          {/* ✅ DESKTOP VERSION */}
+          <div className="hidden md:flex flex-col  gap-5 mt-6 ml-16 w-full md:justify-center md:items-center lg:items-end ">
             {/* ROW 1 */}
-            <div className="flex items-center justify-center lg:justify-end gap-3 flex-wrap max-w-full">
+            <div className="flex items-center justify-end gap-3 flex-wrap max-w-full">
               <div className="feature-pill">Creative Team</div>
               <div className="feature-pill">Reliable Support</div>
               <img src={teamImg} alt="" className="feature-img" />
             </div>
 
             {/* ROW 2 */}
-            <div className="flex items-center justify-center lg:justify-end gap-3 flex-wrap max-w-full">
+            <div className="flex items-center justify-end gap-3 flex-wrap max-w-full">
               <div className="feature-pill">Startup Friendly</div>
               <img src={customImg} alt="" className="feature-img" />
               <div className="feature-pill">Custom Solutions</div>
             </div>
 
             {/* ROW 3 */}
-            <div className="flex items-center justify-center lg:justify-end gap-3 flex-wrap max-w-full">
+            <div className="flex items-center justify-end gap-3 flex-wrap max-w-full">
               <div className="feature-pill">High-Quality Designs</div>
               <div className="feature-pill">On-Time Delivery</div>
               <img src={deliveryImg} alt="" className="feature-img" />
             </div>
 
             {/* ROW 4 */}
-            <div className="flex items-center justify-center lg:justify-end gap-3 flex-wrap max-w-full">
+            <div className="flex items-center justify-end gap-3 flex-wrap max-w-full">
               <div className="feature-pill">Fast Communication</div>
               <img src={image5} alt="" className="feature-img" />
               <div className="feature-pill">Affordable Tech Solutions</div>
+            </div>
+          </div>
+
+          {/* Mobile  */}
+          {/* ✅ MOBILE VERSION */}
+          <div className="flex flex-col gap-3  md:hidden w-full mt-6">
+            {/* ROW 1 */}
+
+            <div className="flex justify-center gap-2">
+              <div className="feature-pill">Creative Team</div>
+              <div className="feature-pill">Reliable Support</div>
+            </div>
+
+            {/* ROW 2 */}
+            <div className="flex justify-center gap-2">
+              <div className="feature-pill">Startup Friendly</div>
+              <div className="feature-pill">Custom Solutions</div>
+            </div>
+
+            {/* ROW 3 */}
+            <div className="flex justify-center gap-2">
+              <div className="feature-pill">Efficient Solutions</div>
+              <div className="feature-pill">On-Time Delivery</div>
+            </div>
+
+            {/* ROW 4 */}
+            <div className="flex justify-center gap-2">
+              <div className="feature-pill">High-Quality Designs</div>
+              <div className="feature-pill">Fast Communication</div>
             </div>
           </div>
         </div>

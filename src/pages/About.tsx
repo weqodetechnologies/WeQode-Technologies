@@ -8,13 +8,12 @@ import Footer from "@/components/Footer";
 function About() {
   return (
     <div>
-      <div className="absolute  inset-0  right-[-220px]  flex items-end justify-end overflow-hidden">
-        <BackgroundOrbit />
-      </div>
-
       <Header />
       <main>
         <AboutHeroSection />
+        <div className="absolute  inset-0  right-[-220px]  flex items-end justify-end overflow-hidden">
+          <BackgroundOrbit />
+        </div>
         <MissionAndVision />
         <FAQ />
       </main>

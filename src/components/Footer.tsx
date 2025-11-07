@@ -122,11 +122,17 @@ const Footer = () => {
               </div>
 
               {/* Address */}
-              <div className="flex items-center gap-3 justify-center md:justify-start">
-                <MapPin className="text-[#F68C2D] w-6 h-6 flex-shrink-0" />
-                <div className="flex flex-col text-center md:text-left leading-tight">
-                  <p className="font-semibold">Head Office:</p>
-                  <p>WeQode Technologies, Jaiprakash Nagar, Nagpur</p>
+              <div className="flex items-center gap-3 justify-center md:justify-start ">
+                <MapPin className="text-[#F68C2D] w-6 h-6 flex-shrink-0 hidden sm:flex" />
+                <div className="flex flex-col text-center sm:text-left md:text-left leading-tight">
+                  {/* Mobile (sm) */}
+                  <p className="font-semibold md:hidden">Head Office</p>
+
+                  {/* Tablet + Desktop (md and above) */}
+                  <p className="font-semibold hidden md:block">Head Office:</p>
+                  <p className="font-normal">
+                    WeQode Technologies, Jaiprakash Nagar, Nagpur
+                  </p>
                 </div>
               </div>
             </div>

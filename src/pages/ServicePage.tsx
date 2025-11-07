@@ -10,7 +10,7 @@ const ServicePage = () => {
   return (
     <div className="min-h-screen ">
       <Header />
-      <main className="flex-grow">
+      <main>
         <ServicesPageHero />
         <Services />
         <ProjectCTA />
