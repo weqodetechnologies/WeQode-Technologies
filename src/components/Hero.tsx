@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-20">
-      <div className="grid lg:grid-cols-[60%_40%] gap-10 lg:gap-6 items-center">
+      <div className="grid lg:grid-cols-[70%_30%] gap-10 lg:gap-6 items-center">
         {/* Left Section */}
         <div className="px-2 sm:px-5 text-center lg:text-left font-black">
           <h1

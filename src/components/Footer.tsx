@@ -19,68 +19,45 @@ const Footer = () => {
   return (
     <footer className="bg-[#512E78] text-white py-12 sm:py-16">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid gap-12 md:grid-cols-3">
           {/* Left Section */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">
               <span className="text-[#F68C2D]">We</span>Qode{" "}
               <span className="text-white">Technologies</span>
             </h2>
-            <p className="text-[#F68C2D] text-lg mb-8 font-medium">
+
+            <p className="text-[#F68C2D] text-base sm:text-lg mb-6 font-medium">
               Tech Solutions made simple!
             </p>
 
-            <p className="text-base mb-3">
-              Have an idea or project in mind? <br />
-              Let’s talk.
+            <p className="text-sm sm:text-base mb-4">
+              Have an idea or project in mind? <br /> Let’s talk.
             </p>
 
-            {/* Input and Button */}
-            <div className="flex items-center bg-white rounded-full overflow-hidden w-full max-w-[330px] shadow-md">
+            {/* Input Box */}
+            <div className="flex items-center bg-white rounded-full overflow-hidden w-full max-w-[320px] mx-auto md:mx-0 shadow-md">
               <Input
                 placeholder="Reach out to us"
-                className="flex-1 border-none bg-transparent text-gray-600 placeholder:text-gray-400 text-base focus:ring-0 focus:outline-none px-5 py-3"
+                className="flex-1 border-none bg-transparent text-gray-600 placeholder:text-gray-400 text-sm sm:text-base focus:ring-0 px-4 py-2"
               />
-              <Button className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-semibold text-base rounded-full px-6 py-3 hover:opacity-90 transition-all">
+              <Button className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-semibold text-sm sm:text-base rounded-full px-4 sm:px-6 py-2 sm:py-3">
                 Let’s Talk
               </Button>
             </div>
 
             {/* Social Icons */}
-            <div className="mt-8">
-              <p className="text-lg font-medium mb-4">Follow us</p>
-              <div className="flex gap-4">
-                {/* LinkedIn */}
-                <a
-                  href="#"
-                  className="w-10 h-10 border-2 rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
-                >
-                  <Icon
-                    type="linkedin"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+            <div className="mt-6 sm:mt-8">
+              <p className="text-lg font-medium mb-3">Follow us</p>
+              <div className="flex justify-center md:justify-start gap-4">
+                <a className="w-9 h-9 sm:w-10 sm:h-10 border-2 rounded-full flex items-center justify-center hover:bg-white transition-all">
+                  <Icon type="linkedin" className="w-7 h-7 sm:w-8 sm:h-8" />
                 </a>
-
-                {/* X (Twitter) */}
-                <a
-                  href="#"
-                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
-                >
-                  <Icon
-                    type="twitter"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+                <a className="w-9 h-9 sm:w-10 sm:h-10 border-2 rounded-full flex items-center justify-center hover:bg-white transition-all">
+                  <Icon type="twitter" className="w-7 h-7 sm:w-8 sm:h-8" />
                 </a>
-
-                {/* Instagram */}
-                <a
-                  href="#"
-                  className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center overflow-hidden hover:text-[#512E78] transition-all"
-                >
-                  <Icon
-                    type="instragram"
-                    className="w-10 h-10 object-contain transition-transform duration-300 hover:scale-110"
-                  />
+                <a className="w-9 h-9 sm:w-10 sm:h-10 border-2 rounded-full flex items-center justify-center hover:bg-white transition-all">
+                  <Icon type="instragram" className="w-7 h-7 sm:w-8 sm:h-8" />
                 </a>
               </div>
             </div>
@@ -125,31 +102,31 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Contact Information</h3>
 
-            <div className="flex flex-col gap-5 text-lg">
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <Phone className="text-[#F68C2D] w-6 h-6 mt-1" />
-                <div>
-                  <p className="font-semibold">Phone</p>
-                  <p>+91 7678011969</p>
+            <div className="flex flex-col gap-5 text-base sm:text-lg">
+              {/* Phone */}
+              <div className="flex items-center gap-3 justify-center md:justify-start">
+                <Phone className="text-[#F68C2D] w-6 h-6 flex-shrink-0" />
+                <div className="flex flex-wrap items-center gap-1">
+                  <p className="font-semibold">Phone:</p>
+                  <p className="font-normal">+91 7678011969</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <Mail className="text-[#F68C2D] w-6 h-6 mt-1" />
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <p>info@weqodetech.com</p>
+              {/* Email */}
+              <div className="flex items-center gap-3 justify-center md:justify-start">
+                <Mail className="text-[#F68C2D] w-6 h-6 flex-shrink-0" />
+                <div className="flex flex-wrap items-center gap-1">
+                  <p className="font-semibold">Email:</p>
+                  <p className="font-normal">info@weqodetech.com</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 justify-center md:justify-start">
-                <MapPin className="text-[#F68C2D] w-6 h-6 mt-1" />
-                <div>
-                  <p className="font-semibold">Head Office</p>
-                  <p>
-                    WeQode Technologies, Jaiprakash Nagar, <br />
-                    Nagpur
-                  </p>
+              {/* Address */}
+              <div className="flex items-center gap-3 justify-center md:justify-start">
+                <MapPin className="text-[#F68C2D] w-6 h-6 flex-shrink-0" />
+                <div className="flex flex-col text-center md:text-left leading-tight">
+                  <p className="font-semibold">Head Office:</p>
+                  <p>WeQode Technologies, Jaiprakash Nagar, Nagpur</p>
                 </div>
               </div>
             </div>
@@ -157,7 +134,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-white/20 mt-12 pt-6 text-center text-white/70 text-sm">
+        <div className="border-t border-white/20 mt-10 pt-5 text-center text-white/70 text-sm">
           © 2025 WeQode Technologies. All rights reserved.
         </div>
       </div>
