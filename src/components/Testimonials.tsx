@@ -68,13 +68,13 @@ const Testimonials = () => {
     <section className="py-16 sm:py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Background text */}
-        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
+        <div className="text-[40px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
           TESTIMONIALS
         </div>
 
         {/* Heading */}
         <h2
-          className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6 lg:mb-10"
+          className="text-2xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6 lg:mb-10"
           style={{ color: "hsl(var(--brand-orange))" }}
         >
           Testimonials From Our Clients

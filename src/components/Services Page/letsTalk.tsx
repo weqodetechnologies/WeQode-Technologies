@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import characterImg from "../../assets/AvetarImg/HelloChar.png"; // your image path
 
 const ProjectCTA = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/contact#contact-form-section");
+  };
   return (
     <section
       className="bg-[hsl(var(--brand-purple))] rounded-2xl mx-auto 
@@ -24,6 +29,7 @@ const ProjectCTA = () => {
   hover:shadow-xl hover:opacity-90 transition-all 
   w-[200px] h-[44px] sm:w-[220px] sm:h-[48px] lg:w-[261px] lg:h-[52px] 
   flex items-center justify-center mx-auto lg:mx-0"
+          onClick={handleClick}
         >
           {" "}
           Let’s Talk

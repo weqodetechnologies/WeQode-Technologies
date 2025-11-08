@@ -126,7 +126,7 @@ const ContactForm = () => {
                     className="ml-8 font-medium text-white
       text-[16px] sm:text-[18px] md:text[20px] lg:text-[20px]"
                   >
-                    +91 1234567890
+                    +91 7678011969
                   </p>
                 </div>
                 {/* Email */}
@@ -287,7 +287,7 @@ const ContactForm = () => {
                   {services.map((service, index) => (
                     <label
                       key={index}
-                      className="flex items-center space-x-2 cursor-pointer"
+                      className="flex items-center space-x-4 cursor-pointer"
                     >
                       <Checkbox
                         checked={selectedServices.includes(service)}
@@ -311,7 +311,7 @@ const ContactForm = () => {
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-center  sm:justify-center lg:justify-start   ">
+            <div className="flex justify-center  sm:justify-center lg:justify-start    ">
               <Button
                 type="submit"
                 className="text-white font-semibold text-base rounded-md px-6 py-3 hover:opacity-90 transition-all"

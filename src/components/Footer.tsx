@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import Icon from "./icon";
 
 const Footer = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentPath = location.pathname;
 
   // ✅ Helper function for active link
@@ -16,6 +17,9 @@ const Footer = () => {
       ? "text-[#F68C2D] font-semibold transition-all"
       : "hover:text-[#F68C2D] transition-all";
 
+  const handleClick = () => {
+    navigate("/contact#contact-form-section");
+  };
   return (
     <footer className="bg-[#512E78] text-white py-12 sm:py-16">
       <div className="container mx-auto px-6 md:px-12">
@@ -31,19 +35,23 @@ const Footer = () => {
               Tech Solutions made simple!
             </p>
 
-            <p className="text-sm sm:text-base mb-4">
-              Have an idea or project in mind? <br /> Let’s talk.
-            </p>
+            <div>
+              {" "}
+              <p className="text-sm sm:text-base mb-4">
+                Have an idea or project in mind? <br /> Let’s talk.
+              </p>
+              <div className="flex items-center justify-between bg-white rounded-full w-full max-w-[260px] mx-auto md:mx-0 px-1 py-1 shadow-[inset_0_-3px_5px_rgba(0,0,0,0.1),0_4px_10px_rgba(0,0,0,0.15)]">
+                <span className="text-[#A19E9E] font-semibold text-sm sm:text-base px-4">
+                  Reach out to us
+                </span>
 
-            {/* Input Box */}
-            <div className="flex items-center bg-white rounded-full overflow-hidden w-full max-w-[320px] mx-auto md:mx-0 shadow-md">
-              <Input
-                placeholder="Reach out to us"
-                className="flex-1 border-none bg-transparent text-gray-600 placeholder:text-gray-400 text-sm sm:text-base focus:ring-0 px-4 py-2"
-              />
-              <Button className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-semibold text-sm sm:text-base rounded-full px-4 sm:px-6 py-2 sm:py-3">
-                Let’s Talk
-              </Button>
+                <button
+                  onClick={handleClick}
+                  className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-semibold text-sm sm:text-base rounded-full px-2 sm:px-4 py-1 sm:py-2 shadow-[0_3px_6px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.3)] transition-all duration-300"
+                >
+                  Let’s Talk
+                </button>
+              </div>
             </div>
 
             {/* Social Icons */}

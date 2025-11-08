@@ -7,11 +7,11 @@ import FAQ from "@/components/About Us/FAQ";
 import Footer from "@/components/Footer";
 function About() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <main>
         <AboutHeroSection />
-        <div className="absolute  inset-0  right-[-220px]  flex items-end justify-end overflow-hidden">
+        <div className="absolute inset-0 right-0 overflow-hidden">
           <BackgroundOrbit />
         </div>
         <MissionAndVision />

@@ -7,12 +7,15 @@ import React from "react";
 
 function Career() {
   return (
-    <div className="min-h-screen ">
+    <div className="relative overflow-x-hidden">
       <Header />
 
-      <main>
-        <div className="absolute  inset-0  right-[-800px]  flex items-end justify-center overflow-hidden">
-          <Graph />
+      <main className="relative">
+        {/* ✅ Graph visible only on large screens and clipped */}
+        <div className="hidden lg:flex absolute inset-0 items-end justify-center pointer-events-none">
+          <div className="relative w-[200%] right-[-400px] overflow-hidden">
+            <Graph />
+          </div>
         </div>
 
         <CareerGrowthGraph />

@@ -63,7 +63,7 @@ const MissionAndVision = () => {
   return (
     <div>
       {/* Header Section */}
-      <section className="bg-background relative overflow-hidden mt-[250px] ">
+      <section className="bg-background relative overflow-hidden  ">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
             OUR
@@ -82,7 +82,7 @@ const MissionAndVision = () => {
         </div>
 
         {/* Vision  */}
-        <div className="container mx-auto px-4 sm:px-6 mt-30 sm:mt-40 md:mt-50  lg:mt-[80px]">
+        <div className="container mx-auto px-4 sm:px-6 mt-30 sm:mt-40 md:mt-50  lg:mt-[30px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <h2
@@ -121,9 +121,9 @@ const MissionAndVision = () => {
 
         {/* Mission */}
         <div className="container mx-auto px-4 sm:px-6 mt-30 sm:mt-40 md:mt-50  lg:mt-[100px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center  mb-8 sm:mb-0">
             {/* Right Side Image */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start  p-4 sm-0  ">
               <img
                 src={ourMissionImage}
                 alt="Technologies"
@@ -157,7 +157,7 @@ const MissionAndVision = () => {
         </div>
 
         {/* what set us apart */}
-        <div className="container mx-auto px-4 sm:px-6 mt-[250px]">
+        <div className="container mx-auto px-4 sm:px-6 mt-[100px]">
           <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none ">
             What
           </div>
@@ -174,7 +174,7 @@ const MissionAndVision = () => {
             expectations.
           </p>
           {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4  lg:grid-cols-4 gap-6">
             {cards.map((card, index) => (
               <div
                 key={index}
@@ -196,7 +196,7 @@ const MissionAndVision = () => {
         </div>
 
         {/* Sector */}
-        <div className="container mx-auto px-4 sm:px-6 mt-[250px]">
+        <div className="container mx-auto px-4 sm:px-6 mt-[100px] mb-14">
           <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-58px] select-none ">
             SECTOR
           </div>

@@ -4,12 +4,12 @@ const AboutHeroSection = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-16">
+      <section className="container mx-auto px-4 sm:px-6 py-6 sm:py-12 lg:py-16">
         <div className="px-5 text-center lg:text-left font-black gap-6">
           <h1 className="mt-[50px] text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] mb-4 sm:mb-6 leading-tight text-[#111111]">
             Empowering <br /> Startups with Simple,
             <br /> Smart and Affordable
-            <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out mx-4">
+            <span className="text-[hsl(var(--brand-purple))] transition-all duration-700 ease-in-out mx-2  sm:mx-2 lg:mx-4">
               Tech{" "}
             </span>
           </h1>
@@ -21,7 +21,7 @@ const AboutHeroSection = () => {
         </div>
 
         {/* About the company */}
-        <div className="container mx-auto px-4 sm:px-6 mt-30 sm:mt-40 md:mt-50  lg:mt-[250  px]">
+        <div className="container mx-auto px-4 sm:px-6 mt-30 sm:mt-40 md:mt-50  ">
           {/* Two-column layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left side content */}

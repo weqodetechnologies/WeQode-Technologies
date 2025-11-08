@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import mascot from "@/assets/AvetarImg/sittingLaptopRobo.png";
 
 function Cta() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/contact#contact-form-section");
+  };
+
   return (
     <div>
       <section className="bg-[hsl(var(--brand-beige))] py-12 sm:py-16 lg:py-20 mb-12 sm:mb-16 lg:mb-20">
@@ -32,6 +39,7 @@ function Cta() {
           hover:opacity-90 transition-opacity font-medium
         "
               style={{ backgroundColor: "hsl(var(--brand-orange))" }}
+              onClick={handleClick}
             >
               Start Your Project
             </Button>
