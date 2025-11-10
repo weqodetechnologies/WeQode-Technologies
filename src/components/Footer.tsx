@@ -42,21 +42,21 @@ const Footer = () => {
 
               <div
                 className="flex items-center justify-between bg-white rounded-full 
-    w-full max-w-[220px] sm:max-w-[250px] md:max-w-[270px] lg:max-w-[300px]
+    w-full max-w-[180px] sm:max-w-[230px] md:max-w-[280px] lg:max-w-[230px]
     mx-auto md:mx-0 px-3 sm:px-4 py-[6px] sm:py-[8px]
-    shadow-[inset_0_-3px_5px_rgba(0,0,0,0.1),0_4px_10px_rgba(0,0,0,0.15)] relative"
+    shadow-[inset_0_-3px_5px_rgba(0,0,0,0.1),0_4px_10px_rgba(0,0,0,0.15)]"
               >
-                {/* Centered or slightly left text */}
-                <span className="text-[#A19E9E] font-semibold text-xs sm:text-sm md:text-[12px] absolute right-1/2 -translate-x-1/2 pointer-events-none">
+                {/* Left-aligned text */}
+                <span className="text-[#A19E9E] font-semibold text-xs sm:text-sm md:text-[15px] whitespace-nowrap">
                   Reach out
                 </span>
 
                 {/* Right-aligned button */}
                 <button
                   onClick={handleClick}
-                  className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-medium 
-      text-xs sm:text-sm md:text-base rounded-full 
-      px-3 sm:px-4 py-1 sm:py-[6px] ml-auto
+                  className="bg-gradient-to-b from-[#F9A23B] to-[#E67A15] text-white font-semibold 
+      text-xs sm:text-sm md:text-[12px] rounded-full 
+      px-3 sm:px-4 py-[5px] sm:py-[6px]
       shadow-[0_3px_6px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.3)] 
       transition-all duration-300"
                 >
