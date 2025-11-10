@@ -100,28 +100,20 @@ const WhyChooseUs = () => {
 
           {/* Mobile  */}
           {/* ✅ MOBILE VERSION */}
-          <div className="flex flex-col gap-3  md:hidden w-full mt-6">
-            {/* ROW 1 */}
-
-            <div className="flex justify-center gap-2">
+          <div className="flex flex-col gap-3 md:hidden w-full mt-6 px-2">
+            <div className="flex flex-wrap justify-center gap-2">
               <div className="feature-pill">Creative Team</div>
               <div className="feature-pill">Reliable Support</div>
             </div>
-
-            {/* ROW 2 */}
-            <div className="flex justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               <div className="feature-pill">Startup Friendly</div>
               <div className="feature-pill">Custom Solutions</div>
             </div>
-
-            {/* ROW 3 */}
-            <div className="flex justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               <div className="feature-pill">Efficient Solutions</div>
               <div className="feature-pill">On-Time Delivery</div>
             </div>
-
-            {/* ROW 4 */}
-            <div className="flex justify-center gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               <div className="feature-pill">High-Quality Designs</div>
               <div className="feature-pill">Fast Communication</div>
             </div>
