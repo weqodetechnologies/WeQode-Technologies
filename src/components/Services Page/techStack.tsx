@@ -91,7 +91,7 @@ const TechnologiesSection = () => {
         </p>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4  items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4  items-center ">
           <div className=" font-medium text-lg lg:text-[24px] space-y-4 text-[#656464] leading-6 lg:leading-8 ">
             <p>
               We believe the right technology stack is the backbone of every
@@ -152,7 +152,7 @@ const TechnologiesSection = () => {
                    h-[60px] sm:h-[66px] md:h-[70px] lg:h-[74px]
                  rounded-2xl shadow-sm
                    flex items-center justify-center gap-2
-                   text-gray-800 font-medium lg:shadow-xl transition-all"
+                   text-gray-800 font-medium lg:shadow-xl sm:shadow-md md:shadow-lg  transition-all"
               >
                 <img
                   src={tech.icon}
@@ -175,7 +175,7 @@ const TechnologiesSection = () => {
                    h-[60px] sm:h-[66px] md:h-[70px] lg:h-[74px]
                     rounded-2xl shadow-sm
                    flex items-center justify-center gap-2
-                   text-gray-800 font-medium  lg:shadow-xl transition-all"
+                   text-gray-800 font-medium lg:shadow-xl sm:shadow-md md:shadow-lg   transition-all"
               >
                 <img
                   src={tech.icon}

@@ -17,15 +17,15 @@ const testimonials = [
   },
   {
     rating: 5.0,
-    text: "Fantastic support from WeQode. Our e-commerce launch went smoothly and the custom features were exactly as we imagined. Will happily recommend!",
-    author: "Samir Patel",
-    role: "Founder, ShopEasy",
+    text: "The WeQode team impressed us with their creativity and attention to detail. They built a complete digital identity for our brand — from web design to backend systems — and everything feels cohesive and beautifully executed. Communication was quick, honest, and effective. You can tell they genuinely care about the final outcome.",
+    author: "Radhika Mishra",
+    role: "Founder, Looma Studio",
   },
   {
-    rating: 5.0,
-    text: "Reliable team and quality-driven approach. Our SaaS platform needed upgrades and WeQode delivered every milestone ahead of time.",
-    author: "Priya Verma",
-    role: "CTO, CloudCore",
+    rating: 4.5,
+    text: "WeQode Technologies brought structure and clarity to our digital strategy. Their combination of strong UX design, technical expertise, and project management helped us scale smoothly. They don’t just deliver what you ask for — they guide you toward smarter, better solutions. Highly recommend their team.",
+    author: "Dev PatelOperations ",
+    role: "Manager, NextGen",
   },
 ];
 
