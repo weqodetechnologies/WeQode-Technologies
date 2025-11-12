@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import mascot from "@/assets/AvetarImg/sittingLaptopRobo.png";
 
 function Cta() {

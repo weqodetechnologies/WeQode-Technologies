@@ -1,5 +1,5 @@
 import RobotImg from "../../assets/AvetarImg/sitingonLaptop.png";
-import Icon from "../icon";
+import Icon from "../ui/icon";
 import { MdPhoneInTalk, MdEmail } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import Checkbox from "../../components/ui/checkbox";

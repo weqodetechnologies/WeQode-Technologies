@@ -1,9 +1,9 @@
-import GlobeImg from "../assets/servicesImg/Global.png";
-import MonitorImg from "../assets/servicesImg/development.png";
-import SmartphoneImg from "../assets/servicesImg/app.png";
-import DatabaseImg from "../assets/servicesImg/redesgin.png";
-import CloudImg from "../assets/servicesImg/team.png";
-import ShoppingBagImg from "../assets/servicesImg/domain.png";
+import GlobeImg from "../../assets/servicesImg/Global.png";
+import MonitorImg from "../../assets/servicesImg/development.png";
+import SmartphoneImg from "../../assets/servicesImg/app.png";
+import DatabaseImg from "../../assets/servicesImg/redesgin.png";
+import CloudImg from "../../assets/servicesImg/team.png";
+import ShoppingBagImg from "../../assets/servicesImg/domain.png";
 
 const Services = () => {
   const services = [

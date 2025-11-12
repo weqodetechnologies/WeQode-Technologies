@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import Icon from "./icon";
+import Icon from "./ui/icon";
 
 const Footer = () => {
   const location = useLocation();

@@ -1,45 +1,184 @@
-import React, { useState } from "react";
-import Icon from "../icon";
+import React, { useRef, useState } from "react";
+import Icon from "../ui/icon";
+import emailjs from "@emailjs/browser";
+import axios from "axios";
 
-const jobList = [
-  {
-    id: 1,
-    category: "Design",
-    title: "UI/UX Designer",
-    location: "Remote",
-    type: "Full Time",
-    description: `We’re looking for a UI/UX Designer to create intuitive, engaging, and user-focused digital experiences.
-You’ll collaborate with cross-functional teams to turn ideas into elegant, functional designs.
-A keen eye for detail and a passion for usability are essential.`,
-  },
-  {
-    id: 2,
-    category: "Design",
-    title: "Front-end Developer",
-    location: "Remote",
-    type: "Full Time",
-    description: `We’re looking for a Front-End Developer to build responsive, high-performing web interfaces.
-You’ll work closely with designers and back-end teams to bring creative ideas to life.
-Strong knowledge of modern frameworks and attention to detail are key.`,
-  },
-  {
-    id: 3,
-    category: "Sales",
-    title: "Sales Executive",
-    location: "Remote",
-    type: "Full Time",
-    description: `We’re seeking a Sales Executive to drive client acquisition and business growth.
-You’ll identify opportunities, build relationships, and present tailored digital solutions.
-Strong communication and negotiation skills are essential.`,
-  },
-];
+const CareerGrowthGraph: React.FC = () => {
+  // General state
+  const [hoveredJob, setHoveredJob] = useState<number | null>(null);
+  const [openPopup, setOpenPopup] = useState<string | null>(null);
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error" | null;
+  }>({
+    message: "",
+    type: null,
+  });
 
-const CareerGrowthGraph = () => {
-  const [openJob, setOpenJob] = useState(null);
+  // Form state
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    contact: string;
+    resumeName: string;
+  }>({
+    name: "",
+    email: "",
+    contact: "",
+    resumeName: "",
+  });
 
-  const handleToggle = (id) => {
-    setOpenJob(openJob === id ? null : id);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  // Upload file to Cloudinary
+  const uploadResumeToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "resume_upload"); // unsigned preset
+    // REMOVE: formData.append("access_mode", "public");
+
+    try {
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/darxkqfr0/raw/upload",
+        formData
+      );
+      // Add fl_attachment to ensure download
+      return res.data.secure_url + "?fl_attachment=true";
+    } catch (err) {
+      console.error("Cloudinary upload error:", err);
+      throw new Error("Failed to upload resume");
+    }
   };
+
+  // Handle input change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, files } = e.target;
+    if (name === "resume_file" && files && files.length > 0) {
+      const file = files[0];
+      if (file.size > 400 * 1024) {
+        setError("Resume file size must be less than 400 KB.");
+        return;
+      }
+      setFormData((prev) => ({ ...prev, resumeName: file.name }));
+      setError("");
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  // Toast
+  const showToast = (message: string, type: "success" | "error") => {
+    setToast({ message, type });
+    setTimeout(() => setToast({ message: "", type: null }), 3500);
+  };
+
+  // Reset form and popup states
+  const resetFormState = () => {
+    setFormData({
+      name: "",
+      email: "",
+      contact: "",
+      resumeName: "",
+    });
+    setError("");
+    setToast({ message: "", type: null });
+    setLoading(false);
+  };
+
+  // Handle close
+  const handleClosePopup = () => {
+    setOpenPopup(null);
+    resetFormState();
+  };
+
+  // Submit handler for EmailJS
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.contact ||
+      !formData.resumeName
+    ) {
+      setError("All fields including resume are required.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const fileInput =
+        (formRef.current?.querySelector("#resume_file") as HTMLInputElement) ||
+        null;
+      const file = fileInput?.files?.[0];
+      if (!file) {
+        setError("Please upload your resume.");
+        setLoading(false);
+        return;
+      }
+
+      // 🔹 Step 1: Upload to Cloudinary
+      const resumeUrl = await uploadResumeToCloudinary(file);
+
+      // 🔹 Step 2: Send email using EmailJS
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        contact: formData.contact,
+        resumeLink: resumeUrl, // ✅ Cloudinary link
+      };
+
+      await emailjs.send(
+        "service_zb3z4um",
+        "template_4qhw6b9",
+        templateParams,
+        "d8Bc3rrzINrO1MgeV"
+      );
+
+      showToast("✅ Application sent successfully!", "success");
+      resetFormState();
+      setOpenPopup(null);
+    } catch (err) {
+      console.error(err);
+      showToast("❌ Failed to send application. Please try again.", "error");
+    }
+
+    setLoading(false);
+  };
+
+  // Job data
+  const jobList = [
+    {
+      id: 1,
+      category: "Design",
+      title: "UI/UX Designer",
+      location: "Remote",
+      type: "Full Time",
+      description:
+        "We’re looking for a UI/UX Designer to create engaging designs.",
+    },
+    {
+      id: 2,
+      category: "Development",
+      title: "Front-End Developer",
+      location: "Remote",
+      type: "Full Time",
+      description:
+        "We’re looking for a Front-End Developer to build responsive interfaces.",
+    },
+    {
+      id: 3,
+      category: "Sales",
+      title: "Sales Executive",
+      location: "Remote",
+      type: "Full Time",
+      description: "We’re seeking a Sales Executive to drive business growth.",
+    },
+  ];
 
   const cards = [
     {
@@ -84,8 +223,19 @@ const CareerGrowthGraph = () => {
     },
   ];
 
+  // Render
   return (
     <section className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-20 overflow-x-hidden max-w-full">
+      {/* Toast */}
+      {toast.type && (
+        <div
+          className={`fixed top-5 right-5 px-5 py-3 rounded-lg text-white shadow-lg z-[9999] transition-all duration-300 ${
+            toast.type === "success" ? "bg-green-600" : "bg-red-600"
+          }`}
+        >
+          {toast.message}
+        </div>
+      )}
       {/* Heading */}
       <div className="px-3 sm:px-5 text-center lg:text-left font-black gap-6 max-w-7xl mx-auto">
         <h1 className="mt-12 sm:mt-16 text-[32px] sm:text-[60px] md:text-[75px] lg:text-[90px] mb-6 leading-tight text-[#111111]">
@@ -121,53 +271,160 @@ const CareerGrowthGraph = () => {
           <br /> Here, your ideas make an impact.
         </p>
 
-        {/* Job List */}
-        <div className="space-y-6 max-w-6xl mx-auto">
+        {/* Job List & Apply Popups */}
+        <div className="space-y-6 max-w-6xl mx-auto mt-14">
           {jobList.map((job) => (
             <div
               key={job.id}
-              className="bg-[#FFF8F3] rounded-2xl p-5 sm:p-8 shadow-sm transition-all duration-300"
+              className="bg-[#FFF8F3] rounded-2xl p-5 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300"
+              onMouseEnter={() => setHoveredJob(job.id)}
+              onMouseLeave={() => setHoveredJob(null)}
             >
-              {/* Header */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-8">
-                <div className="min-w-0">
-                  <p className="text-[hsl(var(--brand-purple))] text-lg sm:text-xl font-medium truncate">
+                <div>
+                  <p className="text-[hsl(var(--brand-purple))] text-lg font-medium">
                     {job.category}
                   </p>
-                  <h3 className="text-lg sm:text-2xl font-bold text-[#1A1A1A] truncate">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1A1A1A]">
                     {job.title}
                   </h3>
-                  <div className="flex gap-5 text-[#000000] text-sm mt-2 flex-wrap">
-                    <div className="flex items-center gap-1 whitespace-nowrap">
-                      <Icon type="location" /> {job.location}
-                    </div>
-                    <div className="flex items-center gap-1 whitespace-nowrap">
-                      <Icon type="clock" />
-                      {job.type}
-                    </div>
+                  <div className="flex gap-5 text-[#000] text-sm mt-2 flex-wrap">
+                    <span>📍 {job.location}</span>
+                    <span>⏰ {job.type}</span>
                   </div>
                 </div>
-
                 <button
-                  onClick={() => handleToggle(job.id)}
-                  className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-300 min-w-[100px] ${
-                    openJob === job.id
-                      ? "bg-[hsl(var(--brand-purple))] text-white"
-                      : "bg-[hsl(var(--brand-orange))] text-white"
-                  }`}
+                  onClick={() => setOpenPopup("popup1")}
+                  className="px-5 py-2 rounded-md text-sm font-medium bg-[hsl(var(--brand-orange))] text-white hover:scale-105 transition-all"
                 >
-                  {openJob === job.id ? "Close" : "Apply"}
+                  Apply
                 </button>
               </div>
-
-              {/* Expanded content */}
-              {openJob === job.id && (
-                <div className="mt-4 text-[18px] text-[#000] font-medium leading-7 whitespace-pre-wrap">
+              {hoveredJob === job.id && (
+                <div className="mt-4 text-[18px] text-[#000] font-medium leading-7">
                   {job.description}
                 </div>
               )}
             </div>
           ))}
+
+          {/* Popup 1: Info Form */}
+          {openPopup === "popup1" && (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-60 z-50">
+              <div className="bg-[#4A2B86] rounded-3xl p-8 w-[90%] sm:w-[400px] text-center text-white relative">
+                <button
+                  onClick={handleClosePopup}
+                  className="absolute top-3 right-4 text-white text-xl font-bold"
+                >
+                  ✖
+                </button>
+                <h2 className="text-xl font-bold mb-2">
+                  Shape Your Future With WeQode
+                </h2>
+                <p className="text-sm mb-6">
+                  Enter your details to apply for this role.
+                </p>
+                {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
+                <form className="space-y-4">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name"
+                    className="w-full p-2 rounded-md text-black"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    className="w-full p-2 rounded-md text-black"
+                  />
+                  <input
+                    type="text"
+                    name="contact"
+                    value={formData.contact}
+                    onChange={handleChange}
+                    placeholder="Contact Number"
+                    className="w-full p-2 rounded-md text-black"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (formData.name && formData.email && formData.contact)
+                        setOpenPopup("popup2");
+                      else setError("Please fill in all details first.");
+                    }}
+                    className="bg-[#FF944D] text-white rounded-full w-full py-2 mt-6 font-semibold hover:opacity-90"
+                  >
+                    Next
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* Popup 2: Resume Upload */}
+          {openPopup === "popup2" && (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-60 z-50">
+              <div className="bg-[#4A2B86] rounded-3xl p-8 w-[90%] sm:w-[400px] text-center text-white relative">
+                <button
+                  onClick={handleClosePopup}
+                  className="absolute top-3 right-4 text-white text-xl font-bold"
+                >
+                  ✖
+                </button>
+                <h2 className="text-xl font-bold mb-4">Upload Your Resume</h2>
+                {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                  encType="multipart/form-data"
+                >
+                  <div className="border-2 border-dashed border-white rounded-xl py-4 mb-4 cursor-pointer">
+                    <label htmlFor="resume_file" className="cursor-pointer">
+                      Upload Resume 📎
+                    </label>
+                    <input
+                      id="resume_file"
+                      name="resume_file"
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      className="hidden"
+                      onChange={handleChange}
+                      required
+                    />
+                    {formData.resumeName && (
+                      <p className="text-sm mt-2 text-green-300">
+                        {formData.resumeName}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className={`rounded-full w-full py-2 font-semibold flex justify-center items-center ${
+                      loading
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-[#FF944D] hover:opacity-90"
+                    }`}
+                  >
+                    {loading ? (
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                        Sending...
+                      </div>
+                    ) : (
+                      "Apply Now"
+                    )}
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

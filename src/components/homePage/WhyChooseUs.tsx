@@ -1,10 +1,10 @@
 import React from "react";
-import personImage from "../assets/why Choose us images/image.png";
-import teamImg from "../assets/why Choose us images/image2.png";
-import customImg from "../assets/why Choose us images/image3.png";
-import deliveryImg from "../assets/why Choose us images/image4.png";
-import image5 from "../assets/why Choose us images/image5.png";
-import arrowImg from "../assets/why Choose us images/arro.png";
+import personImage from "../../assets/why Choose us images/image.png";
+import teamImg from "../../assets/why Choose us images/image2.png";
+import customImg from "../../assets/why Choose us images/image3.png";
+import deliveryImg from "../../assets/why Choose us images/image4.png";
+import image5 from "../../assets/why Choose us images/image5.png";
+import arrowImg from "../../assets/why Choose us images/arro.png";
 
 const WhyChooseUs = () => {
   return (

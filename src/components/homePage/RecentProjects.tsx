@@ -1,6 +1,6 @@
-import Laptop from "../assets/Recent Project/laptop.png";
-import Mobile from "../assets/Recent Project/mobile.png";
-import Tab from "../assets/Recent Project/tab.png";
+import Laptop from "../../assets/Recent Project/laptop.png";
+import Mobile from "../../assets/Recent Project/mobile.png";
+import Tab from "../../assets/Recent Project/tab.png";
 
 const RecentProjects = () => {
   const projects = [

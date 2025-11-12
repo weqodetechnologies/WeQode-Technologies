@@ -1,5 +1,6 @@
 import mascot from "@/assets/AvetarImg/sitrobo.png";
 import { useEffect, useState } from "react";
+import Icon from "../ui/icon";
 
 const keywords = ["Solutions", "Application", "Website", "Redesign"];
 const intervalTime = 2000;

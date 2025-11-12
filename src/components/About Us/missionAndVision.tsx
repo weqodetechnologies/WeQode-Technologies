@@ -1,7 +1,7 @@
 import ourMissionImage from "../../assets/aboutImges/mission.png";
 import ourVisionImage from "../../assets/aboutImges/vision.png";
 
-import Icon from "../icon";
+import Icon from "../ui/icon";
 const MissionAndVision = () => {
   const cards = [
     {
