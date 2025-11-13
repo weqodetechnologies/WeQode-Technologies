@@ -159,7 +159,7 @@ const CareerGrowthGraph: React.FC = () => {
       location: "Remote",
       type: "Full Time",
       description:
-        "We’re looking for a UI/UX Designer to create engaging designs.",
+        "We’re looking for a UI/UX Designer to create intuitive, engaging, and user-focused digital experiences.You’ll collaborate with cross-functional teams to turn ideas into elegant, functional designs.A keen eye for detail and a passion for usability are essential.",
     },
     {
       id: 2,
@@ -168,15 +168,25 @@ const CareerGrowthGraph: React.FC = () => {
       location: "Remote",
       type: "Full Time",
       description:
-        "We’re looking for a Front-End Developer to build responsive interfaces.",
+        "We’re looking for a Front-End Developer to build responsive, high-performing web interfaces.You’ll work closely with designers and back-end teams to bring creative ideas to life.Strong knowledge of modern frameworks and attention to detail are key.",
     },
     {
       id: 3,
+      category: "Development",
+      title: "Back-End Developer",
+      location: "Onsite",
+      type: "Full Time",
+      description:
+        "We’re looking for a Backend Developer to build robust, scalable, and efficient server-side systems. You’ll collaborate with front-end teams to integrate features seamlessly, enhance performance, and maintain reliable data flow across all services. Strong expertise in databases, REST APIs, and modern backend frameworks is required.  ",
+    },
+    {
+      id: 4,
       category: "Sales",
       title: "Sales Executive",
       location: "Remote",
       type: "Full Time",
-      description: "We’re seeking a Sales Executive to drive business growth.",
+      description:
+        "We’re seeking a Sales Executive to drive client acquisition and business growth.You’ll identify opportunities, build relationships, and present tailored digital solutions.Strong communication and negotiation skills are essential.",
     },
   ];
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiPlus, FiX } from "react-icons/fi";
 
 const faqs = [
@@ -29,6 +29,49 @@ const faqs = [
   },
 ];
 
+const Counter = ({ end, suffix }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !started.current) {
+          started.current = true;
+          startCounting();
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const startCounting = () => {
+    let start = 0;
+    const duration = 2000;
+    const step = Math.max(10, duration / end);
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, step);
+  };
+
+  return (
+    <h3
+      ref={ref}
+      className="text-[32px] sm:text-[42px] md:text-[48px] lg:text-[64px] font-bold text-[hsl(var(--brand-orange))]"
+    >
+      {count}
+      {suffix}
+    </h3>
+  );
+};
+
 function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -39,6 +82,7 @@ function FAQ() {
   return (
     <div className="w-full overflow-x-hidden">
       {/* ================= HERO STATS SECTION ================= */}
+
       <section className="bg-[hsl(var(--brand-purple))] text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-12 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold mb-4">
           Built on Your Success
@@ -49,18 +93,15 @@ function FAQ() {
           into 100% client success stories.
         </p>
 
-        {/* STATS GRID */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
           {[
-            { number: "20+", label: "Industries Served" },
-            { number: "30+", label: "Creative Minds" },
-            { number: "7+", label: "Unique Services" },
-            { number: "100%", label: "Client Satisfaction" },
+            { end: 20, suffix: "+", label: "Industries Served" },
+            { end: 30, suffix: "+", label: "Creative Minds" },
+            { end: 7, suffix: "+", label: "Unique Services" },
+            { end: 100, suffix: "%", label: "Client Satisfaction" },
           ].map((item, idx) => (
             <div key={idx} className="flex flex-col items-center">
-              <h3 className="text-[32px] sm:text-[42px] md:text-[48px] lg:text-[64px] font-bold text-[hsl(var(--brand-orange))]">
-                {item.number}
-              </h3>
+              <Counter end={item.end} suffix={item.suffix} />
               <p className="text-xs sm:text-base md:text-lg lg:text-[20px] font-semibold">
                 {item.label}
               </p>
@@ -68,7 +109,6 @@ function FAQ() {
           ))}
         </div>
       </section>
-
       {/* ================= FAQ SECTION ================= */}
       <div className="container mx-auto px-4 sm:px-6 mt-16 sm:mt-20 md:mt-28 mb-20">
         {/* FAQ HEADING */}
