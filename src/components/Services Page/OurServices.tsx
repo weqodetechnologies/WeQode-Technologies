@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
 import devImage from "../../assets/Services Img/devImage.png";
-import webAppImage from "../../assets/Services Img/webAppImage .png";
+import webAppImage from "../../assets/Services Img/webAppImage.jpg";
 import appDevImage from "../../assets/Services Img/MobileApp.png";
 import redesignImage from "../../assets/Services Img/Redesign.png";
 import resourceImage from "../../assets/Services Img/Resource Outsourcing.png";

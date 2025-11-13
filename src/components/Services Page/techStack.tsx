@@ -76,8 +76,8 @@ const TechnologiesSection = () => {
   return (
     <section className="py-16 sm:py-20 bg-background relative overflow-hidden mb-[120px] ">
       <div className="max-w-7xl mx-auto px-12 sm:px-6 lg:px-8">
-        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-30px] sm:mb-[-40px] lg:mb-[-60px] select-none">
-          TECHNLOGIES
+        <div className="text-[60px] sm:text-[80px] lg:text-[128px] font-black text-[#E5E5E5] leading-none mb-[-40px] sm:mb-[-40px] lg:mb-[-60px] select-none ">
+          USE
         </div>
         <h2
           className="text-3xl sm:text-4xl lg:text-[60px] font-bold mb-4 sm:mb-6"
@@ -150,9 +150,9 @@ const TechnologiesSection = () => {
                 key={tech.name}
                 className="w-[120px] sm:w-[140px] md:w-[160px] lg:w-[184px] 
                    h-[60px] sm:h-[66px] md:h-[70px] lg:h-[74px]
-                 rounded-2xl shadow-sm
+                 rounded-2xl 
                    flex items-center justify-center gap-2
-                   text-gray-800 font-medium lg:shadow-xl sm:shadow-md md:shadow-lg  transition-all"
+                   text-gray-800 font-medium  shadow-md lg:shadow-xl sm:shadow-md md:shadow-lg  transition-all"
               >
                 <img
                   src={tech.icon}
@@ -173,7 +173,7 @@ const TechnologiesSection = () => {
                 key={tech.name}
                 className="w-[120px] sm:w-[140px] md:w-[160px] lg:w-[184px] 
                    h-[60px] sm:h-[66px] md:h-[70px] lg:h-[74px]
-                    rounded-2xl shadow-sm
+                    rounded-2xl shadow-md
                    flex items-center justify-center gap-2
                    text-gray-800 font-medium lg:shadow-xl sm:shadow-md md:shadow-lg   transition-all"
               >
