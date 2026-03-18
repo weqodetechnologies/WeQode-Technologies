@@ -2,7 +2,13 @@ import mascot from "@/assets/AvetarImg/sitrobo.png";
 import { useEffect, useState } from "react";
 import Icon from "../ui/icon";
 
-const keywords = ["Solutions", "Application", "Website", "Redesign"];
+const keywords = [
+  "Solutions",
+  "Application",
+  "Website",
+  "Redesign",
+  "AI-Powered Solutions",
+];
 const intervalTime = 2000;
 
 const Hero = () => {

@@ -27,7 +27,9 @@ import ChatGPTIcon from "../../assets/Icons/gpt.png";
 import GeminiIcon from "../../assets/Icons/Gemini.png";
 import ClaudeIcon from "../../assets/Icons/cloude.png";
 import MidjourneyIcon from "../../assets/Icons/Midjourny.png";
-import ZapierIcon from "../../assets/Icons/Zapir.png";
+import LangChainIcon from "../../assets/Icons/LangChainIcon.png";
+import TensorflowIcon from "../../assets/Icons/TensorflowIcon .png";
+import PytorchIcon from "../../assets/Icons/PytorchIcon.png";
 
 const techStack = {
   Design: [
@@ -66,7 +68,9 @@ const techStack = {
     { name: "Gemini", icon: GeminiIcon },
     { name: "Claude", icon: ClaudeIcon },
     { name: "Midjourney", icon: MidjourneyIcon },
-    { name: "Zapier", icon: ZapierIcon },
+    { name: "LangChain", icon: LangChainIcon },
+    { name: "TensorFlow", icon: TensorflowIcon },
+    { name: "PyTorch", icon: PytorchIcon },
   ],
 };
 

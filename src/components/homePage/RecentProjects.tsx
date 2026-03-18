@@ -25,7 +25,7 @@ const RecentProjects = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30"> 
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="mb-12 sm:mb-16">

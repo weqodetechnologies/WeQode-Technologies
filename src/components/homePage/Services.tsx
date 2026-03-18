@@ -8,6 +8,14 @@ import ShoppingBagImg from "../../assets/servicesImg/domain.png";
 const Services = () => {
   const services = [
     {
+      iconImage: CloudImg,
+      title: "AI Solutions",
+      description:
+        "Building smart AI solutions for automation and intelligent systems.",
+      tags: ["AI Automation", "Smart Systems", "Machine Learning"],
+      variant: "purple" as const,
+    },
+    {
       iconImage: GlobeImg,
       title: "Website Development",
       description:
@@ -39,14 +47,7 @@ const Services = () => {
       tags: ["UI/UX", "Omptimization", "Modernization", "Branding Refresh"],
       variant: "purple" as const,
     },
-    {
-      iconImage: CloudImg,
-      title: "Resource Outsourcing",
-      description:
-        "Flexible access to our designs and development experts when you need them.",
-      tags: ["UI Designers", "Tech. team", "UX Professionals"],
-      variant: "purple" as const,
-    },
+
     {
       iconImage: ShoppingBagImg,
       title: "Domain Service Management",
@@ -151,32 +152,32 @@ const Services = () => {
                         ? "hsl(var(--brand-orange))"
                         : "hsl(var(--brand-purple))"
                       : tagIndex === 1 || tagIndex === 2
-                      ? "hsl(var(--brand-purple))"
-                      : "hsl(var(--brand-orange))";
+                        ? "hsl(var(--brand-purple))"
+                        : "hsl(var(--brand-orange))";
 
                     const defaultText = isPurpleCard
                       ? tagIndex === 1 || tagIndex === 2
                         ? "black"
                         : "white"
                       : tagIndex === 1 || tagIndex === 2
-                      ? "white"
-                      : "black";
+                        ? "white"
+                        : "black";
 
                     const hoverBg = isPurpleCard
                       ? tagIndex === 1 || tagIndex === 2
                         ? "hsl(var(--brand-purple))"
                         : "hsl(var(--brand-orange))"
                       : tagIndex === 1 || tagIndex === 2
-                      ? "hsl(var(--brand-orange))"
-                      : "hsl(var(--brand-purple))";
+                        ? "hsl(var(--brand-orange))"
+                        : "hsl(var(--brand-purple))";
 
                     const hoverText = isPurpleCard
                       ? tagIndex === 1 || tagIndex === 2
                         ? "white"
                         : "black"
                       : tagIndex === 1 || tagIndex === 2
-                      ? "black"
-                      : "white";
+                        ? "black"
+                        : "white";
 
                     return (
                       <span

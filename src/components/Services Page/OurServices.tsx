@@ -106,25 +106,25 @@ const serviceSections = [
     image: redesignImage,
   },
   {
-    key: "resource",
-    title: "Resource Outsourcing",
+    key: "ai",
+    title: "AI Solutions",
     subtitle:
-      "We craft powerful, interactive, and secure web applications tailored to your business needs. Our team combines innovative design with robust technology to deliver seamless digital experiences that drive efficiency, engagement, and growth.",
+      "We develop intelligent AI-powered solutions that automate workflows, analyze data, and enhance digital experiences to help businesses innovate and grow faster.",
     accordions: [
       {
-        title: "Dedicated Resource Hiring",
+        title: "AI Application Development",
         content:
-          "Hire expert developers and designers for short-term and long-term projects.",
+          "Build custom AI-powered applications that automate processes and deliver smarter user experiences.",
       },
       {
-        title: "Brand Refresh Integration",
+        title: "AI Chatbots & Assistants",
         content:
-          "Seamlessly refresh and modernize your team’s skillset to match current tech trends.",
+          "Create intelligent chatbots and virtual assistants to improve customer support and engagement.",
       },
       {
-        title: "Remote Team Augmentation",
+        title: "AI Automation & Analytics",
         content:
-          "Quickly scale project teams with skilled professionals from our remote pool.",
+          "Use AI-driven automation and data insights to optimize operations and make better business decisions.",
       },
     ],
     image: resourceImage,

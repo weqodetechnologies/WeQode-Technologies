@@ -36,7 +36,7 @@ const ContactForm = () => {
     setSelectedServices((prev) =>
       prev.includes(service)
         ? prev.filter((s) => s !== service)
-        : [...prev, service]
+        : [...prev, service],
     );
   };
 
@@ -61,7 +61,7 @@ const ContactForm = () => {
           message: formData.message,
           services: selectedServiceList,
         },
-        "d8Bc3rrzINrO1MgeV"
+        "d8Bc3rrzINrO1MgeV",
       )
       .then(
         () => {
@@ -78,7 +78,7 @@ const ContactForm = () => {
         (error) => {
           console.error("Error:", error.text);
           alert("❌ Failed to send message. Please try again later.");
-        }
+        },
       );
   };
 
@@ -160,7 +160,9 @@ const ContactForm = () => {
                     className="ml-8 font-medium text-white
       text-[16px] sm:text-[18px] md:text[20px] lg:text-[20px]"
                   >
-                    WeQode Technologies, Jaiprakash Nagar, Nagpur
+                    WeQode Technologies,
+                    <br />
+                    55 A, Pande layout, Khamla, Nagpur
                   </p>
                 </div>
               </div>
