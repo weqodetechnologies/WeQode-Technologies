@@ -21,9 +21,9 @@ const Footer = () => {
     navigate("/contact#contact-form-section");
   };
   return (
-    <footer className="bg-[#512E78] text-white py-12 sm:py-16">
+    <footer className="bg-[#512E78] text-white py-12 sm:py-14">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid gap-12 md:grid-cols-3">
+        <div className="grid gap-12 md:grid-cols-4">
           {/* Left Section */}
           <div className="text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">
@@ -37,7 +37,7 @@ const Footer = () => {
 
             <div>
               <p className="text-sm sm:text-base mb-4 text-white leading-relaxed">
-                Have an idea or project in mind? <br /> Let’s talk.
+                Have an idea or project in mind? <br /> Let's talk.
               </p>
 
               <div
@@ -60,7 +60,7 @@ const Footer = () => {
       shadow-[0_3px_6px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.3)] 
       transition-all duration-300"
                 >
-                  Let’s Talk
+                  Let's Talk
                 </button>
               </div>
             </div>
@@ -157,11 +157,62 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* New Our Offices Section */}
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold mb-4">Our Offices Across India</h3>
+            <div className="flex flex-col gap-6 text-sm sm:text-base">
+              {/* Mumbai */}
+              <div className="flex flex-col items-center md:items-start gap-1">
+                <div className="flex items-center gap-2">
+                  <MapPin className="text-[#F68C2D] w-5 h-5 flex-shrink-0" />
+                  <span className="font-extrabold text-white text-base">
+                    Mumbai
+                  </span>
+                </div>
+                <p className="font-normal text-left leading-tight text-center text-base md:text-left">
+                  Carter Road, Bandra West
+                  <br />
+                  Mumbai, Maharashtra 400050
+                </p>
+              </div>
+
+              {/* Pune */}
+              <div className="flex flex-col items-center md:items-start gap-1">
+                <div className="flex items-center gap-2">
+                  <MapPin className="text-[#F68C2D] w-5 h-5 flex-shrink-0" />
+                  <span className="font-extrabold text-white text-base">
+                    Pune
+                  </span>
+                </div>
+                <p className="font-normal text-left leading-tight text-center md:text-left text-base">
+                  Shree Heights Society Baner Road, Baner Pune,
+                  <br />
+                  Maharashtra 411045
+                </p>
+              </div>
+
+              {/* Bangalore */}
+              <div className="flex flex-col items-center md:items-start gap-1">
+                <div className="flex items-center gap-2">
+                  <MapPin className="text-[#F68C2D] w-5 h-5 flex-shrink-0" />
+                  <span className="font-extrabold text-white text-base">
+                    Bangalore
+                  </span>
+                </div>
+                <p className="font-normal text-left leading-tight text-center md:text-left text-base">
+                  HSR Layout, Sector 2
+                  <br />
+                  Bangalore, Karnataka 560102
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="border-t border-white/20 mt-10 pt-5 text-center text-white/70 text-sm">
-          © 2025 WeQode Technologies. All rights reserved.
+          © {new Date().getFullYear()} WeQode Technologies. All rights reserved.
         </div>
       </div>
     </footer>

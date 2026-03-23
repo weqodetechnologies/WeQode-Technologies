@@ -197,7 +197,7 @@ const ContactForm = () => {
         <main>
           <form
             onSubmit={handleSubmit}
-            className="w-full bg-white rounded-2xl shadow-md p-5 sm:p-12 space-y-3"
+            className="w-full bg-white rounded-2xl shadow-md p-5 sm:p-12 space-y-1"
           >
             {/* Name Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
